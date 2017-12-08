@@ -90,11 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="what-is-cram.html">What Is CRAM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Model Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="create-network.html">Creating a Network</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Details</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#model-nodes">Model Nodes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-links">Model Links</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
 </ul>
@@ -162,40 +158,7 @@
             
   <div class="section" id="model-details">
 <h1>Model Details<a class="headerlink" href="#model-details" title="Permalink to this headline">¶</a></h1>
-<p>Here we discuss some for the more complex features within CRAM.</p>
-<div class="section" id="model-nodes">
-<h2>Model Nodes<a class="headerlink" href="#model-nodes" title="Permalink to this headline">¶</a></h2>
-<img alt="_images/edit-node.png" src="_images/edit-node.png" />
-<p>The following section defines the fields on the <strong>Edit Node</strong> dialog box.</p>
-<ul class="simple">
-<li>The Node Number is automatically assigned by Excel CRAM. Nodes can not be reused in the network.</li>
-<li>The Node Name is user-defined, and are most commonly left blank.</li>
-<li>If the Node Name is used, it must be an ASCII string (alphanumeric and/or special characters). A good example for a node name would be a stream gage name, location, or other geographic reference.</li>
-<li>The Node Location fields X and Y are not currently in use in the model. They are present only for legacy Excel CRAM models and should be ignored.</li>
-<li>The Display Group is set to 1 by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see xxx.</li>
-<li>The Comment box allows the user to add any notes about the node that might be important to the design.</li>
-</ul>
-</div>
-<div class="section" id="model-links">
-<h2>Model Links<a class="headerlink" href="#model-links" title="Permalink to this headline">¶</a></h2>
-<img alt="_images/edit-link.png" src="_images/edit-link.png" />
-<p>The following section defines the fields on the <strong>Edit Link</strong> dialog box.</p>
-<ul class="simple">
-<li>The Link Number is automatically assigned by Excel CRAM.  Link numbers can not be reused in the network.</li>
-<li>The Link Name is a user-defined ASCII string that povide a common name to describe the reach. It is recommended that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.</li>
-<li>The Offset field is not currently used in the model. It is present for legacy Excel CRAM models only and should be ignored.</li>
-<li>The From Node identifies the node at the upstream end of the link. <strong>Advanced Note: xxx - what is this???</strong> The transfer or flow, of water from this node to the node indicated by the To Node would represent a positive number.  A negative flow would indicate that water is traveling to the “From Node”.</li>
-<li>The To Node identifies the node at the downstream end of the link. The To Node is where the flow from this link enters and mixes with all other sources (links).</li>
-<li>Create Time Series Sheet/Go to Time Series Data button. This button has one of two labels on it. If the link being edited does not currently have any time series data associated with it, the button will read Create Time Series Sheet. <em>Most links in a CRAM model DO NOT have time series data associated with them.</em> Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.</li>
-<li>The High field provides a space to specify a constant maximum capacity for the link. A value provided here will last for all minor time steps in a model run unless there is a Link Time Series Data sheet to override the value. A value of “Infinite” here indicates that the link does not have a capacity limit.</li>
-<li>The Low field provides a space to specify a constant minimum flow for the link. A value provided here will last for all minor time steps in a model run unless there is a Link Time Series Data Sheet in the current scenario with the Low parameter specified there. <strong>Advanced Note:</strong> <em>If a negative value is used in this field, water will flow “backwards” through the link generating a negative priority for each unit of flow transferred. This should be used with caution, and it is recommended the priority value is set to zero.</em></li>
-<li>The Priority field provides a space to enter the priority to be assigned to that link.</li>
-<li>The Display Group is set to 1 by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see xxx.</li>
-<li>The Step Sequence allows you to enter the state of the element (Open, Closed, Frozen) for each operation step. More information can be found in xxx. <strong>Advanced Note:</strong> <em>The default value is O for open. Other values should only be used by advanced users.</em></li>
-<li>The Comment box allows the user to add any notes about the node that might be important to the design.</li>
-<li>Output To Worksheet provides a list of check boxes for Link parameters that can be written to the output worksheet when the model is run. xxx update the dialog box.</li>
-</ul>
-</div>
+<p>VBA code and such.</p>
 </div>
 
 
