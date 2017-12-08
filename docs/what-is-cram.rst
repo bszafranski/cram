@@ -32,3 +32,11 @@ Features
 - Groundwater
 - Advanced “What-If” scenario analysis capabilities
 
+Under the Hood
+^^^^^^^^^^^^^^
+
+CRAM optimizes systems while preserving mass balance using what is known as a circulating network. It solves the minimum-cost flow problem using the Out-of-Kilter algorithm, where flows (or some quantity) are solved for while minimizing costs.
+
+CRAM runs within Excel, utilizing its graphics, spreadsheets and VBA code to create a familiar user interface.
+
+

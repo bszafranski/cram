@@ -19,6 +19,7 @@ Guide
    what-is-cram
    basics
    create-network
+   details
    license
    help
 

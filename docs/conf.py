@@ -46,7 +46,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'CRAM'
-copyright = u'2017, Bill Szafranski'
+copyright = u'2017, Lynker Technologies'
 author = u'Bill Szafranski'
 
 # The version info for the project you're documenting, acts as replacement for

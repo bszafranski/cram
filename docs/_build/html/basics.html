@@ -92,10 +92,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-network-schematic">The Network Schematic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-user-input-sheet">The User Input Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cram-sheets">CRAM Sheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-is-cram">What Is CRAM?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="create-network.html">Creating a Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">Model Details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
 </ul>
@@ -187,8 +187,8 @@
 <p><strong>Basic Controls:</strong></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="32%" />
-<col width="68%" />
+<col width="34%" />
+<col width="66%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Sheet Name</th>
@@ -209,7 +209,8 @@
 <td>Controls sheet visibility.</td>
 </tr>
 <tr class="row-even"><td>Model Workbook Version History</td>
-<td>Worksheet to track changes to model workbook. Manually updated by users.</td>
+<td>Worksheet to track changes to model workbook. Manually
+updated by users.</td>
 </tr>
 <tr class="row-odd"><td>Output Sheet</td>
 <td>Worksheet to store model results for model run. CRAM raw output.</td>
@@ -249,12 +250,6 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="what-is-cram">
-<h2>What Is CRAM?<a class="headerlink" href="#what-is-cram" title="Permalink to this headline">¶</a></h2>
-<p>Excel CRAM networks are constructed from several types of active elements, connected by nodes.  There are 6 types of active elements: Links, Inflows, Demands, Decrees, Return Flows and Reservoirs.</p>
-<p>Water enters the network through inflows. Like a real system, all the water that enters the system plus any change in storage at reservoirs in the system must be equal to outflows (such as through demands or links that represent river reaches that leave the study area) and losses (such as evaporation or losses to groundwater.) Excel CRAM automatically enforces mass balance.</p>
-<p>When Excel CRAM solves the network, it supplies water first to those elements with the highest numerical priority, subject to any constraints, such as physical availability and capacity constraints. This makes Excel CRAM highly suitable for analyzing systems where water rights must be administered in priority, or operations involve prioritized targets.</p>
-</div>
 </div>
 
 
@@ -279,7 +274,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Bill Szafranski.
+        &copy; Copyright 2017, Lynker Technologies.
 
     </p>
   </div>
