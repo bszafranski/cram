@@ -29,7 +29,7 @@ The network schematic shows the physical connections in the model network. It is
    
 The network schematic is an interactive interface for building the model and editing model parameters. It allows the user to access most locations in the model. For instance, clicking on Link 26 opens a pop-up that lists the link name, how it's connected in the model (from node, to node), and the types of output it should have. **This is shown in the image provided below.**
 
-.. image:: /images/interactive-interface.png
+.. image:: /images/interactive-interface-v2.png
 
 
 The User Input Sheet
