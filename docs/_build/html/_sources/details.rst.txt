@@ -1,4 +1,6 @@
+.. _details-label:
+
 Model Details
 =============
 
-VBA code and such.
+Coming Soon.

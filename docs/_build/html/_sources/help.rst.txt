@@ -3,9 +3,9 @@ Help
 
 .. image:: /images/cram-header-40T.jpg
 
-Have more questions about CRAM?
+**Have more questions about CRAM?**
 
-Interested in making CRAM work for you?
+**Interested in making CRAM work for you?**
 
 Contact Us:
 

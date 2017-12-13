@@ -1,19 +1,19 @@
 Creating a Network
 ==================
 
-In its simplest form, a CRAM network consists of a single node with one inflow and one demand.  The inflow specifies the amount of water entering the system and the demand specifies the amount of water leaving the system.  Because CRAM enforces mass-balance, all of the flow entering through the Inflow must exit through the Demand. If the demand has been constrained to a capacity less than the Inflow flow found in one of the minor time steps the model will determine that an xxx has occured.
+In its simplest form, a CRAM network consists of a single node with one inflow and one demand.  The inflow specifies the amount of water entering the system and the demand specifies the amount of water leaving the system.  Because CRAM enforces mass-balance, all of the flow entering through the Inflow must exit through the Demand. If the demand has been constrained to a capacity less than the Inflow flow found in one of the minor time steps the model will determine that an infeasible solution has occured.
 
-Most Excel CRAM models will consist of a few hundred nodes connected by a larger number of links allowing water (flow) to be delivered to many different competing demands from a variety of sources. CRAM optimizes the system to determine the most efficient use of the water given the delivery constraints (both physical and administrative). After a solution has been attained, the user may want to experiment with additional stresses, constraints, or options on the simulation network. This is a core component of CRAM - **Scenario Analysis**.
+Most Excel CRAM models will consist of a few hundred nodes connected by a larger number of links allowing water (flow) to be delivered to many different competing demands from a variety of sources. CRAM optimizes the system to determine the most efficient use of the water given the delivery constraints (both physical and administrative). After a solution has been attained, the user may want to experiment with additional stresses, constraints, or options on the simulation network. This is a core component of CRAM's scenario analysis.
 
-The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM's operation steps allow modeling of the most complext exchanges and water rights. Please read the additional information about these features to be aware of "gotchas" that you may encounter when using the Excel CRAM modeling tool.  
+The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM's operation steps allow modeling of the most complex exchanges and water rights. Please read the additional information about these features to be aware of "gotchas" that you may encounter when using the Excel CRAM modeling tool. The blue note boxes provide tips that may be helful in avoiding modeling errors (infeasible solutions). 
 
 Adding a Node
 ^^^^^^^^^^^^^
 
-Nodes are the basic building block of a CRAM network. Nodes are used to connect other network arc types (i.e., links) and help determine the potential paths for flow in the model. There are two kinds of nodes in a model.
+Nodes are the basic building block of a CRAM network. Nodes are used to connect other network arc types (e.g., links, inflows, demands) and help determine the potential paths for flow in the model. There are two kinds of nodes in a model.
 
 1. General nodes are nodes that have a single instance and physical location in the model.  You can identify a general node because it will be represented by a circle with a number inside of it.  
-2. **[xxx - is this still relevant? - did we hide/remove?]** Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see The Network Schematic) it is represented in multiple locations. However, they all represent the same node in the model. For instance an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic an be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping.
+2. Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see The Network Schematic) it is represented in multiple locations. However, they all represent the same node in the model. For instance an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic an be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping.
 
 All nodes in the network maintain mass balance during every step of the solution.
 
@@ -23,9 +23,6 @@ To add a node to the network click on the Create Node button on the toolbar (sho
 
 .. image:: /images/add-node2.png
 
-When a new node is added to the model, it is positioned as close as possible to the last cell selected on the network schematic. The node can be repositioned by bringing up the Drawing Toolbar and clicking on the arrow to move the drawing of the node. Alternatively, right-click the node, the left click to remove the pop-up menu, then place the cursor at the edge of the node to grab it and move it.
-
-.. image:: /images/cursor.png
 
 Node Basics
 ~~~~~~~~~~~
@@ -34,16 +31,16 @@ The basic features necessary to add a model node are discussed in this section. 
 
 .. image:: /images/edit-node.png
 
-- The Node Number is automatically assigned by Excel CRAM. Nodes can not be reused in the network.
-- The Node Name is user-defined, and is typically left blank.
-- If the Node Name is used, it must be an ASCII string (alphanumeric and/or special characters). A good example for a node name would be a stream gage name, location, or other geographic reference. 
-- **[DELETE - xxx]**  The Node Location fields X and Y are not currently in use in the model. They are present only for legacy Excel CRAM models and should be ignored.
-- The Comment box allows the user to add any notes about the node that might be important to the design.
+The **Node Number** is automatically assigned by Excel CRAM. Nodes can not be reused in the network.
+
+**The Node Name** is user-defined, and is typically left blank. If the Node Name is used, it must be an ASCII string (alphanumeric and/or special characters). A good example for a node name would be a stream gage name, location, or other geographic reference.
+ 
+The **Comment** box allows the user to add any notes about the node that might be important to the design.
 
 Advanced Node Setup
 ~~~~~~~~~~~~~~~~~~~
 
-- The Display Group is set to 1 by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see xxx.  
+- The Display Group is set to "1" by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see :ref:`details-label` documentation.  
 
 
 Adding a Link
@@ -53,7 +50,7 @@ A link connects two nodes. It has four user configurable parameters which help d
 
 1. **High:** The High parameter is the maximum amount of flow that can pass through the link in a single solution time step. Typically the default value of "Infinite" is used. However, integer values are commonly used to represent pipeline capacities. 
 
-.. note:: **Advanced Note:** *If the total amount of water at the From Node is greater than the sum of all High parameters on all arcs leaving that node, an infeasible solution will occur. Using the default value of infinite avoids this problem.*
+.. note:: **Advanced Note:** *If the total amount of water at the From Node is greater than the sum of all High parameters on all arcs leaving that node, an infeasible solution will occur. Using the default value of "infinite" avoids this problem.*
 
 2. **Low:**  The Low parameter is the minimum amount of flow that MUST pass through the link in a single solution time step. Typically the default value of "0" is used. 
 
@@ -82,17 +79,13 @@ The **Link Number** is automatically assigned by Excel CRAM.  Link numbers can n
 
 The **Link Name** is a user-defined ASCII string that povide a common name to describe the reach. It is recommended that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.
 
-**[DELETE - xxx]** The Offset field is not currently used in the model. It is present for legacy Excel CRAM models only and should be ignored.
-
 The **From Node** identifies the node at the upstream end of the link. 
-
-.. note:: **Advanced Note: xxx - what is this???** The transfer or flow, of water from this node to the node indicated by the To Node would represent a positive number.  A negative flow would indicate that water is traveling to the "From Node".
 
 The **To Node** identifies the node at the downstream end of the link. The To Node is where the flow from this link enters and mixes with all other sources (links).
 
 **Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the link being edited does not currently have any time series data associated with it, the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.
 
-.. note:: *Most links DO NOT have time series data associated with them. Links used to build advanced reservoirs are an exception to this* **[check this - xxx]**
+.. note:: *Most links DO NOT have time series data associated with them. Links used to build advanced reservoirs are an exception to this.* 
 
 The **High** field provides a space to specify a constant maximum capacity for the link. A value provided here will last for all minor time steps in a model run unless there is a Link Time Series Data sheet to override the value. A value of "Infinite" here indicates that the link does not have a capacity limit.
 
@@ -107,12 +100,12 @@ The **Comment** box allows the user to add any notes about the node that might b
 Advanced Link Setup
 ~~~~~~~~~~~~~~~~~~~
 
-- The Display Group is set to 1 by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see xxx.    
-- The Step Sequence allows you to enter the state of the element (Open, Closed, Frozen) for each operation step. More information can be found in xxx. 
+- The Display Group is set to "1" by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see :ref:`details-label` documentation.    
+- The Step Sequence allows you to enter the state of the element (Open, Closed, Frozen) for each operation step. More information can be found in :ref:`details-label` documentation. 
 
-.. note:: *The default value is O for open. Other values should only be used by advanced CRAM users.*
+.. note:: *The default value is "O" for open. Other values should only be used by advanced CRAM users.*
  
-- Output To Worksheet provides a list of check boxes for Link parameters that can be written to the output worksheet when the model is run. xxx update the dialog box.
+- Output To Worksheet provides a list of check boxes for Link parameters that can be written to the output worksheet when the model is run.
 
 
 
@@ -144,24 +137,22 @@ The **Inflow Number** is automatically assigned by Excel CRAM.  Inflow numbers c
 
 The **Inflow Name** is a user-defined ASCII string that povide a familiar name to describe the inflow. *Inflows are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters but this not required.  The name should normally be less than 256 characters in length.
 
-**[delete - xxx]** The Offset field is not currently in use in the model and are present for legacy Excel CRAM models.  You should not need to do anything with this field.
-
 The **To Node** identifies the node at the receiving end of the inflow.  The To Node is where the flow from the inflow enters and mixes with all other sources (links or inflows).
 
 **Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the inflow being edited does not currently have any time series data associated with it the button will read Create Time Series Sheet.  Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.
 
-.. note:: *Inflows ALWAYS have time series data associated with them. Failure to create a Time Series Sheet will result in a model error* **[check this - xxx]**
+.. note:: *Inflows should always have time series data associated with them. Failure to create a Time Series Sheet will result in a zero inflow.*
 
 The Comment box allows the user to add any notes about the node that might be important to the design.
 
 Advanced Inflow Setup
 ~~~~~~~~~~~~~~~~~~~~~
 
-- The Step Sequence specifies the operation steps to be used for this Inflow. More information can be found in xxx. 
+- The Step Sequence specifies the operation steps to be used for this Inflow. More information can be found in :ref:`details-label` documentation. 
 
-.. note:: *The default value is O for open. Other values should only be used by advanced CRAM users.*
+.. note:: *The default value is "O" for open. Other values should only be used by advanced CRAM users.*
 
-- The Display Group is set to 1 by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see xxx.  
+- The Display Group is set to "1" by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see :ref:`details-label` documentation.  
 - Output To Worksheet provides a list of check boxes for the Inflow parameter that can be written to the output worksheet when the model is run.
 
 Adding a Demand
@@ -191,13 +182,11 @@ The **Demand Number** is automatically assigned by Excel CRAM. Demand numbers ca
 
 The **Demand Name** is a user-defined ASCII string that povide a familiar name to describe the demand. *Inflows are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.
 
-**[delete - xxx]** The Offset field is not currently in use in the model and are present for legacy  Excel CRAM models.  You should not need to do anything with this field.
-
-The **From Node** identifies the node at the upstream or distributing side of the demand. **Is this necessary?? -xxx - The transfer or flow, of water from this node to the mass balance node would represent a positive number.**
+The **From Node** identifies the node at the upstream or distributing side of the demand.
 
 **Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the demand being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.
 
-.. note:: *Demands ALWAYS have time series data associated with them. Failure to create a Time Series Sheet will result in a model error* **[check this - xxx]**
+.. note:: *Demands should always have time series data associated with them. Failure to create a Time Series Sheet will result in the demand having a default value of infinite.*
 
 The **High** field provides a space to specify a constant maximum capacity for the demand. A value provided here will last for all minor time steps in a model run unless there is Demand Time Series Data Sheet to override the value. A value of "Infinite" here indicates that the demand does not have a capacity limit. This can be useful for creating a demand that will take all available flow in a network.
 
@@ -214,8 +203,17 @@ The **Display Group** field provides a place to assign the node's display group 
 
 The **Step Sequence** allows the user to enter the state of the element (Open, Closed, Frozen) for each operation step.
 
-.. note:: *The default value is O for open. Other values should only be used by advanced CRAM users.*
+.. note:: *The default value is "O" for open. Other values should only be used by advanced CRAM users.*
 
 The *Comment* box allows the user to add any notes about the node that might be important to the design.
 
 **Output To Worksheet** provides a list of check boxes for Demand parameters that can be written to the output worksheet when the model is run.
+
+
+Moving Objects in CRAM
+^^^^^^^^^^^^^^^^^^^^^^
+
+When a new node is added to the model, it is positioned as close as possible to the last cell selected on the network schematic. The node can be repositioned by bringing up the Drawing Toolbar and clicking on the arrow to move the drawing of the node. Alternatively, right-click the node, the left click to remove the pop-up menu, then place the cursor at the edge of the node to grab it and move it.
+
+.. image:: /images/cursor.png
+

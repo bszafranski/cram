@@ -89,9 +89,13 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="what-is-cram.html">What Is CRAM</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Model Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#network-elements">Network Elements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-network-schematic">The Network Schematic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-user-input-sheet">The User Input Sheet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cram-sheets">CRAM Sheets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#time-steps">Time Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#operation-steps">Operation Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-code">User Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cram-worksheet-names">CRAM Worksheet Names</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="create-network.html">Creating a Network</a></li>
@@ -163,28 +167,53 @@
             
   <div class="section" id="model-basics">
 <h1>Model Basics<a class="headerlink" href="#model-basics" title="Permalink to this headline">¶</a></h1>
-<p>CRAM is based on 2 core model componets.</p>
+<div class="section" id="network-elements">
+<h2>Network Elements<a class="headerlink" href="#network-elements" title="Permalink to this headline">¶</a></h2>
+<p>CRAM uses 8 types of objects to represent real-world systems.</p>
 <ul class="simple">
-<li>The network schematic</li>
-<li>User input sheet</li>
+<li><strong>Nodes:</strong> Nodes are general-purpose elemnts within the model network. They are used along with <strong>links</strong> to build a model network that represents a real-world system. Mass balance nodes are a special type of node added automatically by CRAM. They are connected to inflows and demands and are used to maintain mass balance.</li>
+<li><strong>Links:</strong> Links are general-purpose elements most often used to simulate rivers or canal reaches. They are also used as arbitrary connectors between two nodes.</li>
+<li><strong>Inflows:</strong> Inflows represent flow into a network. They are frequently used to represent a raw water supply such as a river.</li>
+<li><strong>Demands:</strong> Demands represent flow out of a network. They are frequently used to represent withdrawals from a system such as a diversion ditch or water right.</li>
+<li><strong>Reservoirs:</strong> Reservoirs represent storage within a system. They are more complex than other network elements, requiring nodes and links for proper configuration.</li>
+<li><strong>Decrees:</strong>  Decrees are used to model water rights. They can be used to represent the limits on total annual diversion to canals, to set annual filling limits on water rights into reservoirs, or to limit supplemental water to an annual limit without having to determine in which months it might be needed.</li>
+<li><strong>Return Flows:</strong> Return flows represent water that leaves the surface water system at one location but then returns at another location and possibly another time.</li>
+<li><strong>Instream Flows:</strong> Instream flows represent the minimum water that must be available in a river, for example to support fish health.</li>
 </ul>
-<p>From these two locations, the user is able to access most locations in the model.</p>
+<p><strong>Data Objects</strong> are an additional type of model object that can be added to the network. They are used to track model output and do not affect the configuration or solution of the model. That is to say, Data Objects don’t connect with a To Node and From Node within the network.</p>
+</div>
 <div class="section" id="the-network-schematic">
 <h2>The Network Schematic<a class="headerlink" href="#the-network-schematic" title="Permalink to this headline">¶</a></h2>
-<p>The network schematic is the user interface for CRAM, which stores the links and nodes that represent the system. This includes inflows, reservoirs, demands, return flows, and groundwater use. Click the image below for a full resolution image.</p>
+<p>The network schematic shows the physical connections in the model network. It is the user interface for CRAM, displaying a graphical representation of the links and nodes that represent the system. This includes inflows, reservoirs, demands, return flows, and groundwater use. <strong>Click the image below for a full resolution network schematic.</strong></p>
 <a class="reference internal image-reference" href="_images/network-schematic.png"><img alt="CRAM Demo Model Network Schematic" class="align-center" src="_images/network-schematic.png" style="width: 1113.0px; height: 655.0px;" /></a>
-<p>The network schematic is an interactive interface for building the model and editing model parameters. For instance, clicking on Link 26 opens a pop-up that gives the link name, how it’s connected (from node, to node), and what types of output it should have. This is shown in the image provided below.</p>
+<p>The network schematic is an interactive interface for building the model and editing model parameters. It allows the user to access most locations in the model. For instance, clicking on Link 26 opens a pop-up that lists the link name, how it’s connected in the model (from node, to node), and the types of output it should have. <strong>This is shown in the image provided below.</strong></p>
 <img alt="_images/interactive-interface.png" src="_images/interactive-interface.png" />
 </div>
 <div class="section" id="the-user-input-sheet">
 <h2>The User Input Sheet<a class="headerlink" href="#the-user-input-sheet" title="Permalink to this headline">¶</a></h2>
 <p>The user input sheet contains the user setting for a model. This allows the user to run the model, set model parameters, and show additional model details to name a few. The complexity of this sheet is dependent on the complexity of the model.</p>
+<p>The user sheet can be used to set the complexity of the model, with the “Basic User” hiding the most model sheets as discussed in the <a class="reference internal" href="#worksheet-label"><span class="std std-ref">CRAM Worksheet Names</span></a> section.</p>
 <img alt="_images/level-of-detail.png" src="_images/level-of-detail.png" />
 </div>
-<div class="section" id="cram-sheets">
-<h2>CRAM Sheets<a class="headerlink" href="#cram-sheets" title="Permalink to this headline">¶</a></h2>
-<p>These are the types of sheets used in the CRAM model. They have been broken into basic or common sheets and advanced sheets for advanced model users.</p>
-<p><strong>Basic Controls:</strong></p>
+<div class="section" id="time-steps">
+<h2>Time Steps<a class="headerlink" href="#time-steps" title="Permalink to this headline">¶</a></h2>
+<p>CRAM can be operated at any time step; however, daily, weekly, and monthly are the most common.</p>
+<p>CRAM operates using a two time step hierarchy: the major time step and the minor time step. These two modeling concepts are used to represent real-world time periods. For example, a common model representation would be that the major time step represents years and the minor time step represents months.</p>
+<p>The minor time step is where most of the work gets done - CRAM solves the network once or more at each minor time step. The major time step is a concept used to organize data for the minor time steps.</p>
+</div>
+<div class="section" id="operation-steps">
+<h2>Operation Steps<a class="headerlink" href="#operation-steps" title="Permalink to this headline">¶</a></h2>
+<p>Operations steps are used to build complex system operations that are often involved with water rights, reservoirs and exchanges. More information on the use of operation steps can be found in the <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p>
+<img alt="_images/operation-step-mgr.png" src="_images/operation-step-mgr.png" />
+</div>
+<div class="section" id="user-code">
+<h2>User Code<a class="headerlink" href="#user-code" title="Permalink to this headline">¶</a></h2>
+<p>Since CRAM runs within Excel, VBA code can be used to check and changes values in the model while it is running. These functions allow the user to intercept the execution of the model at various points to allow the use of macros. This is useful for creating customized conditions based on complex system operations. More information on the user code can be found in the <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p>
+</div>
+<div class="section" id="cram-worksheet-names">
+<span id="worksheet-label"></span><h2>CRAM Worksheet Names<a class="headerlink" href="#cram-worksheet-names" title="Permalink to this headline">¶</a></h2>
+<p>CRAM model details are stored within Excel worksheets. They have been listed below based on how they are used in the model. By default many of these sheets are hidden to users. This functionality can be changed via the Worksheet Dictionary.</p>
+<p><strong>Standard CRAM Sheets:</strong> This is the core functionality within CRAM. Do not rename or delete these sheets.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="34%" />
@@ -217,7 +246,47 @@ updated by users.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Advanced Controls:</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="11%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Sheet Name</th>
+<th class="head">User Level</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>User Controls</td>
+<td>Basic</td>
+<td>Contains settings for the model, most recent run.</td>
+</tr>
+<tr class="row-odd"><td>Network Schematic</td>
+<td>Basic</td>
+<td>Contains the Network diagram</td>
+</tr>
+<tr class="row-even"><td>Worksheet Output Template</td>
+<td>Basic</td>
+<td>Contains list of elements to export to output file.</td>
+</tr>
+<tr class="row-odd"><td>Worksheet Dictionary</td>
+<td>Basic</td>
+<td>Controls sheet visibility.</td>
+</tr>
+<tr class="row-even"><td>Model Workbook Version History</td>
+<td>Basic</td>
+<td>Worksheet to track changes to model workbook. Manually
+updated by users.</td>
+</tr>
+<tr class="row-odd"><td>Output Sheet</td>
+<td>Basic</td>
+<td>Worksheet to store model results for model run. CRAM raw output.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Internal CRAM Sheets:</strong> These sheets are hidden in the default Basic User settings. Do not rename or delete these sheets.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="22%" />
@@ -246,6 +315,60 @@ updated by users.</td>
 </tr>
 <tr class="row-odd"><td>Reservoir Sheet</td>
 <td>Contains text data used in reservoir dialog box.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Time Series Data Sheets:</strong> These sheets are automatically created by CRAM as the user builds the model. They are sequentially numbered by CRAM.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Sheet Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Link n</td>
+<td>Contains time series data for user defined link sheets.</td>
+</tr>
+<tr class="row-odd"><td>Inflow n</td>
+<td>Contains time series data for user defined inflow sheets.</td>
+</tr>
+<tr class="row-even"><td>Demand n</td>
+<td>Contains time series data for user defined demand sheets.</td>
+</tr>
+<tr class="row-odd"><td>Instream flow n</td>
+<td>Contains time series data for user defined instream flow sheets.</td>
+</tr>
+</tbody>
+</table>
+<p>This table indents, but makes first line bold for some reason.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="18%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Sheet Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>User Controls</td>
+<td>Hidden to user</td>
+<td><dl class="first last docutils">
+<dt>Contains settings for the model,</dt>
+<dd>most recent run.  Especially when dogs in the yard.</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>Network Schematic</td>
+<td>Hidden to user</td>
+<td>Contains the Network diagram</td>
 </tr>
 </tbody>
 </table>
