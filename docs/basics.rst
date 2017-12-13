@@ -71,23 +71,6 @@ CRAM model details are stored within Excel worksheets. They have been listed bel
 
 **Standard CRAM Sheets:** This is the core functionality within CRAM. Do not rename or delete these sheets.
 
-+-----------------------------------+---------------------------------------------------------------------+
-| Sheet Name                        |  Description                                                        |
-+===================================+=====================================================================+
-| User Controls                     |  Contains settings for the model, most recent run.                  |
-+-----------------------------------+---------------------------------------------------------------------+
-| Network Schematic                 |  Contains the Network diagram                                       |
-+-----------------------------------+---------------------------------------------------------------------+
-| Worksheet Output Template         | Contains list of elements to export to output file.                 |
-+-----------------------------------+---------------------------------------------------------------------+
-| Worksheet Dictionary              | Controls sheet visibility.                                          |
-+-----------------------------------+---------------------------------------------------------------------+
-| Model Workbook Version History    | Worksheet to track changes to model workbook. Manually              |
-|                                   | updated by users.                                                   |
-+-----------------------------------+---------------------------------------------------------------------+
-| Output Sheet                      | Worksheet to store model results for model run. CRAM raw output.    |
-+-----------------------------------+---------------------------------------------------------------------+
-
 +---------------------------------+-------------+---------------------------------------------------------------------+
 | Sheet Name                      | User Level  |  Description                                                        |
 +=================================+=============+=====================================================================+
@@ -138,16 +121,3 @@ CRAM model details are stored within Excel worksheets. They have been listed bel
 | Instream flow n            |  Contains time series data for user defined instream flow sheets.    |
 +----------------------------+----------------------------------------------------------------------+
 
-
-This table indents, but makes first line bold for some reason.
-
-.. tabularcolumns:: |l|l|p{2cm}|
-
-+---------------------------+------------------+------------------------------------------------------+
-| Sheet Name                | Type             |  Description                                         |
-+===========================+==================+======================================================+
-| User Controls             | Hidden to user   | Contains settings for the model,                     |
-|                           |                  |  most recent run.  Especially when dogs in the yard. |
-+---------------------------+------------------+------------------------------------------------------+
-| Network Schematic         | Hidden to user   | Contains the Network diagram                         |
-+---------------------------+------------------+------------------------------------------------------+
