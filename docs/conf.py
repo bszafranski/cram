@@ -54,7 +54,7 @@ author = u'Bill Szafranski'
 # built documents.
 #
 # The short X.Y version.
-version = u''
+version = u'4.0'
 # The full version, including alpha/beta/rc tags.
 release = u''
 
