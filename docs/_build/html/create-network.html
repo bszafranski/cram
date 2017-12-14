@@ -114,6 +114,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#advanced-demand-setup">Advanced Demand Setup</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-reservoir">Adding a Reservoir</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reservoir-basics">Reservoir Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-reservoir-setup">Advanced Reservoir Setup</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#moving-objects-in-cram">Moving Objects in CRAM</a></li>
 </ul>
 </li>
@@ -338,7 +343,7 @@
 <p>The basic features necessary to add model demands are discussed in this section. Here we step through the fields on the <strong>Edit Demand</strong> dialog box.</p>
 <img alt="_images/edit-demand.png" src="_images/edit-demand.png" />
 <p>The <strong>Demand Number</strong> is automatically assigned by Excel CRAM. Demand numbers can not be reused in the network.</p>
-<p>The <strong>Demand Name</strong> is a user-defined ASCII string that povide a familiar name to describe the demand. <em>Inflows are ALWAYS named by users within the model.</em> We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.</p>
+<p>The <strong>Demand Name</strong> is a user-defined ASCII string that povide a familiar name to describe the demand. <em>Demands are ALWAYS named by users within the model.</em> We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.</p>
 <p>The <strong>From Node</strong> identifies the node at the upstream or distributing side of the demand.</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the demand being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.</p>
 <div class="admonition note">
@@ -355,14 +360,59 @@
 </div>
 <div class="section" id="advanced-demand-setup">
 <h3>Advanced Demand Setup<a class="headerlink" href="#advanced-demand-setup" title="Permalink to this headline">¶</a></h3>
-<p>The <strong>Display Group</strong> field provides a place to assign the node’s display group number. This can be used to hide the node under certain network schematic display modes.</p>
-<p>The <strong>Step Sequence</strong> allows the user to enter the state of the element (Open, Closed, Frozen) for each operation step.</p>
+<ul class="simple">
+<li>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
+<li>The <strong>Step Sequence</strong> allows the user to enter the state of the element (Open, Closed, Frozen) for each operation step.</li>
+</ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><em>The default value is “O” for open. Other values should only be used by advanced CRAM users.</em></p>
 </div>
-<p>The <em>Comment</em> box allows the user to add any notes about the node that might be important to the design.</p>
-<p><strong>Output To Worksheet</strong> provides a list of check boxes for Demand parameters that can be written to the output worksheet when the model is run.</p>
+<ul class="simple">
+<li>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</li>
+<li><strong>Output To Worksheet</strong> provides a list of check boxes for Demand parameters that can be written to the output worksheet when the model is run.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="adding-a-reservoir">
+<h2>Adding a Reservoir<a class="headerlink" href="#adding-a-reservoir" title="Permalink to this headline">¶</a></h2>
+<p>An Excel CRAM Reservoir is used to simulate the storage of water in a reservoir. This network object may be used to represent either surface or groundwater storage systems. Reservoirs can be built to include complex operations such as hydropower, water rights exchanges, flood storage and dead storage.</p>
+<p>To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the Excel CRAM-&gt;Network-&gt;Add Object… menu item and select Demand from the dialog box that appears.</p>
+<img alt="_images/add-reservoir.png" src="_images/add-reservoir.png" />
+<img alt="_images/add-reservoir2.png" src="_images/add-reservoir2.png" />
+<div class="section" id="reservoir-basics">
+<h3>Reservoir Basics<a class="headerlink" href="#reservoir-basics" title="Permalink to this headline">¶</a></h3>
+<p>The basic features necessary to add reservoirs are discussed in this section. Here we step through the fields on the <strong>Edit Reservoir</strong> dialog box.</p>
+<img alt="_images/edit-reservoir.png" src="_images/edit-reservoir.png" />
+<p>The <strong>Reservoir Number</strong> is automatically assigned by Excel CRAM. Reservoir numbers can not be reused in the network.</p>
+<p>The <strong>Reservoir Name</strong> is a user-defined ASCII string that povide a familiar name to describe the reservoir. <em>Reservoirs are ALWAYS named by users within the model.</em> We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.</p>
+<p>The <strong>From Node</strong> identifies the node at the upstream or distributing side of the reservoir.</p>
+<p>The <strong>To Node</strong> identifies the node at the downstream end of the inflow.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.</p>
+<p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the reservoir being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>Reservoirs usually do not have time series data associated with them. However, links that are a part of the reservoir, such as those used to represent target storage, usually do have time series data.</em></p>
+</div>
+<p>** xxx The Dead Storage Field is currently inactive. xxx **</p>
+<p>** xxx The Active Storage Field is currently inactive. xxx **</p>
+<p>The <strong>Total Capacity</strong> provides a place to record the total storage capacity of the reservoir. This can be either active storage or total storage depending on how you have decided to model the reservoir.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>xxx The Total Capacity must be greater than/ less than the maximum value added to the reservoir elevation-area-volume data (curve).*</li>
+</ul>
+</div>
+<p>The <strong>Initial Contents</strong> provides a place to record the initial storage contents of the reservoir. This can be a variety of values (including zero), depending on how the reservoir is modeled.</p>
+<p>The <strong>Volume-Area Curve</strong> contains pairs of numbers that describe the volume-area relationship for the reservoir.  This table of numbers is used to calculate average surface area over a time step (minor time step) to calculate evaporation. The numbers for this field are entered in increasing order from the lowest volume to the reservoir’s total capacity with the corresponding area following the colon. (i.e.  0:0, 100:40, 200:60 would represent a reservoir that had covered 40 acres when it contained 100 acre-feet (AF) and covered 60 acres when it contained 200 AF). Values between the points are linearly interpolated to determine volume and surface area. Using the previous example, 150 AF of water would correspond to 50 acres in surface area.</p>
+<p>The <strong>Seasonal Evaporation Rate Series</strong> stores the evaporation rates as a series of comma delimited numbers. There should be one value for each minor time step in your model. <strong>xxx There are 3 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step) 2. Monthly evaporation rates 3. xxx</strong> If monthly (seasonal) evaporation rates are used, note that they do not vary from year to year.</p>
+</div>
+<div class="section" id="advanced-reservoir-setup">
+<h3>Advanced Reservoir Setup<a class="headerlink" href="#advanced-reservoir-setup" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
+<li>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</li>
+<li><strong>Output To Worksheet</strong> provides a list of check boxes for Reservoir parameters that can be written to the output worksheet when the model is run.</li>
+</ul>
 </div>
 </div>
 <div class="section" id="moving-objects-in-cram">

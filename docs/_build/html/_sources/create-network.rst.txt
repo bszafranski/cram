@@ -180,7 +180,7 @@ The basic features necessary to add model demands are discussed in this section.
 
 The **Demand Number** is automatically assigned by Excel CRAM. Demand numbers can not be reused in the network.
 
-The **Demand Name** is a user-defined ASCII string that povide a familiar name to describe the demand. *Inflows are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.
+The **Demand Name** is a user-defined ASCII string that povide a familiar name to describe the demand. *Demands are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.
 
 The **From Node** identifies the node at the upstream or distributing side of the demand.
 
@@ -199,15 +199,71 @@ The **Priority** field provides a space to enter the priority assigned to that d
 Advanced Demand Setup
 ~~~~~~~~~~~~~~~~~~~~~
 
-The **Display Group** field provides a place to assign the node's display group number. This can be used to hide the node under certain network schematic display modes.  
+- The **Display Group** is set to "1" by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, etc.) in the network schematic. For more on display groups, see :ref:`details-label` documentation. 
 
-The **Step Sequence** allows the user to enter the state of the element (Open, Closed, Frozen) for each operation step.
+- The **Step Sequence** allows the user to enter the state of the element (Open, Closed, Frozen) for each operation step.
 
 .. note:: *The default value is "O" for open. Other values should only be used by advanced CRAM users.*
 
-The *Comment* box allows the user to add any notes about the node that might be important to the design.
+- The **Comment** box allows the user to add any notes about the node that might be important to the design.
 
-**Output To Worksheet** provides a list of check boxes for Demand parameters that can be written to the output worksheet when the model is run.
+- **Output To Worksheet** provides a list of check boxes for Demand parameters that can be written to the output worksheet when the model is run.
+
+
+Adding a Reservoir
+^^^^^^^^^^^^^^^^^^
+
+An Excel CRAM Reservoir is used to simulate the storage of water in a reservoir. This network object may be used to represent either surface or groundwater storage systems. Reservoirs can be built to include complex operations such as hydropower, water rights exchanges, flood storage and dead storage.  
+
+To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the Excel CRAM->Network->Add Object... menu item and select Demand from the dialog box that appears.
+
+.. image:: /images/add-reservoir.png
+
+.. image:: /images/add-reservoir2.png
+
+Reservoir Basics
+~~~~~~~~~~~~~~~~
+
+The basic features necessary to add reservoirs are discussed in this section. Here we step through the fields on the **Edit Reservoir** dialog box.
+
+.. image:: /images/edit-reservoir.png
+
+The **Reservoir Number** is automatically assigned by Excel CRAM. Reservoir numbers can not be reused in the network.
+
+The **Reservoir Name** is a user-defined ASCII string that povide a familiar name to describe the reservoir. *Reservoirs are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.
+
+The **From Node** identifies the node at the upstream or distributing side of the reservoir.
+
+The **To Node** identifies the node at the downstream end of the inflow.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.
+
+**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the reservoir being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.
+
+.. note:: *Reservoirs usually do not have time series data associated with them. However, links that are a part of the reservoir, such as those used to represent target storage, usually do have time series data.*
+
+** xxx The Dead Storage Field is currently inactive. xxx **
+
+** xxx The Active Storage Field is currently inactive. xxx **
+
+The **Total Capacity** provides a place to record the total storage capacity of the reservoir. This can be either active storage or total storage depending on how you have decided to model the reservoir.
+
+.. note:: * xxx The Total Capacity must be greater than/ less than the maximum value added to the reservoir elevation-area-volume data (curve).*
+
+The **Initial Contents** provides a place to record the initial storage contents of the reservoir. This can be a variety of values (including zero), depending on how the reservoir is modeled.
+
+The **Volume-Area Curve** contains pairs of numbers that describe the volume-area relationship for the reservoir.  This table of numbers is used to calculate average surface area over a time step (minor time step) to calculate evaporation. The numbers for this field are entered in increasing order from the lowest volume to the reservoir's total capacity with the corresponding area following the colon. (i.e.  0:0, 100:40, 200:60 would represent a reservoir that had covered 40 acres when it contained 100 acre-feet (AF) and covered 60 acres when it contained 200 AF). Values between the points are linearly interpolated to determine volume and surface area. Using the previous example, 150 AF of water would correspond to 50 acres in surface area.
+
+The **Seasonal Evaporation Rate Series** stores the evaporation rates as a series of comma delimited numbers. There should be one value for each minor time step in your model. **xxx There are 3 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step) 2. Monthly evaporation rates 3. xxx** If monthly (seasonal) evaporation rates are used, note that they do not vary from year to year.
+
+Advanced Reservoir Setup
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- The **Display Group** is set to "1" by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see :ref:`details-label` documentation. 
+
+- The **Comment** box allows the user to add any notes about the node that might be important to the design.
+
+- **Output To Worksheet** provides a list of check boxes for Reservoir parameters that can be written to the output worksheet when the model is run.
+
+
 
 
 Moving Objects in CRAM
