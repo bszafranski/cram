@@ -6,7 +6,7 @@ Network Elements
 
 CRAM uses 8 types of objects to represent real-world systems.
 
-- **Nodes:** Nodes are general-purpose elemnts within the model network. They are used along with **links** to build a model network that represents a real-world system. Mass balance nodes are a special type of node added automatically by CRAM. They are connected to inflows and demands and are used to maintain mass balance.
+- **Nodes:** Nodes are general-purpose elements within the model network. They are used along with links to build a model network that represents a real-world system. Mass balance nodes are a special type of node added automatically by CRAM. They are connected to inflows and demands and are used to maintain mass balance.
 - **Links:** Links are general-purpose elements most often used to simulate rivers or canal reaches. They are also used as arbitrary connectors between two nodes.
 - **Inflows:** Inflows represent flow into a network. They are frequently used to represent a raw water supply such as a river.
 - **Demands:** Demands represent flow out of a network. They are frequently used to represent withdrawals from a system such as a diversion ditch or water right.
@@ -27,7 +27,7 @@ The network schematic shows the physical connections in the model network. It is
    :alt: CRAM Demo Model Network Schematic
    :align: center
    
-The network schematic is an interactive interface for building the model and editing model parameters. It allows the user to access most locations in the model. For instance, clicking on Link 26 opens a pop-up that lists the link name, how it's connected in the model (from node, to node), and the types of output it should have. **This is shown in the image provided below.**
+The network schematic is an interactive interface for building the model and editing model parameters. It allows the user to access most locations in the model. For instance, clicking on Link 15 opens a pop-up that lists the link name, how it's connected in the model (From Node, To Node), and the types of output it should have. **This is shown in the image provided below.**
 
 .. image:: /images/interactive-interface-v2.png
 
@@ -35,9 +35,9 @@ The network schematic is an interactive interface for building the model and edi
 The User Input Sheet
 ^^^^^^^^^^^^^^^^^^^^
 
-The user input sheet contains the user setting for a model. This allows the user to run the model, set model parameters, and show additional model details to name a few. The complexity of this sheet is dependent on the complexity of the model. 
+The user input sheet contains the settings for a model. This allows the user to run the model, set model parameters, and show additional model details to name a few. The complexity of this sheet is dependent on the complexity of the model. 
 
-The user sheet can be used to set the complexity of the model, with the "Basic User" hiding the most model sheets as discussed in the :ref:`worksheet-label` section.
+The user sheet can set the level of detail in the model, with the "Basic User" hiding most model sheets as discussed in the :ref:`worksheet-label` section. The "Advanced User" reveals the timeseries data sheets within the model and "Developer" mode unhides all of the sheets in a model workbook.
 
 .. image:: /images/level-of-detail.png
 
@@ -67,7 +67,7 @@ Since CRAM runs within Excel, VBA code can be used to check and changes values i
 CRAM Worksheet Names
 ^^^^^^^^^^^^^^^^^^^^
 
-CRAM model details are stored within Excel worksheets. They have been listed below based on how they are used in the model. By default many of these sheets are hidden to users. This functionality can be changed via the Worksheet Dictionary.
+Most of the CRAM model data (time series data, model parameters, network connections) are stored within Excel worksheets. The worksheets have been listed in the tables below based on their functionality within in the model. By default many of these sheets are hidden to users. This functionality can be changed via the Worksheet Dictionary.
 
 **Standard CRAM Sheets:** This is the core functionality within CRAM. Do not rename or delete these sheets.
 
