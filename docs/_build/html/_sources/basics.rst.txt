@@ -88,7 +88,7 @@ CRAM model details are stored within Excel worksheets. They have been listed bel
 | Output Sheet                    | Basic       | Worksheet to store model results for model run. CRAM raw output.    |
 +---------------------------------+-------------+---------------------------------------------------------------------+
 
-**Internal CRAM Sheets:** These sheets are hidden in the default Basic User settings. Do not rename or delete these sheets.
+**Internal CRAM Sheets:** These sheets are hidden in the default "Basic User" settings. Do not rename or delete these sheets.
 
 +---------------------+-------------+-------------------------------------------------------------------------------------------------------------------------+
 | Sheet Name          | User Level  |  Description                                                                                                            |

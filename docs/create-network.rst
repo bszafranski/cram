@@ -3,20 +3,32 @@ Creating a Network
 
 In its simplest form, a CRAM network consists of a single node with one inflow and one demand.  The inflow specifies the amount of water entering the system and the demand specifies the amount of water leaving the system.  Because CRAM enforces mass-balance, all of the flow entering through the Inflow must exit through the Demand. If the demand has been constrained to a capacity less than the Inflow flow found in one of the minor time steps the model will determine that an infeasible solution has occured.
 
+.. image:: /images/basic-network.png
+   :align: center
+
 Most Excel CRAM models will consist of a few hundred nodes connected by a larger number of links allowing water (flow) to be delivered to many different competing demands from a variety of sources. CRAM optimizes the system to determine the most efficient use of the water given the delivery constraints (both physical and administrative). After a solution has been attained, the user may want to experiment with additional stresses, constraints, or options on the simulation network. This is a core component of CRAM's scenario analysis.
 
-The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM's operation steps allow modeling of the most complex exchanges and water rights. Please read the additional information about these features to be aware of "gotchas" that you may encounter when using the Excel CRAM modeling tool. The blue note boxes provide tips that may be helful in avoiding modeling errors (infeasible solutions). 
+.. image:: /images/complex-network.png
+   :align: center
+   :scale: 80%
+
+The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM's operation steps allow modeling of the most complex exchanges and water rights. Please read the additional information about these features to be aware of "gotchas" that you may encounter when using the Excel CRAM modeling tool. The blue note boxes provide tips that may be helful in avoiding modeling errors such as creating infeasible solutions. 
 
 Adding a Node
 ^^^^^^^^^^^^^
 
 Nodes are the basic building block of a CRAM network. Nodes are used to connect other network arc types (e.g., links, inflows, demands) and help determine the potential paths for flow in the model. There are two kinds of nodes in a model.
 
-1. General nodes are nodes that have a single instance and physical location in the model.  You can identify a general node because it will be represented by a circle with a number inside of it.  
-2. Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see The Network Schematic) it is represented in multiple locations. However, they all represent the same node in the model. For instance an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic an be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping.
+1. General nodes are nodes that have a single instance and physical location in the model. These are the types of nodes added to the model by the user. General nodes can be idetified by a circle with a number inside of it.  
+2. Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see The Network Schematic) it is represented in multiple locations. However, they all represent the same node in the model. For instance an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic an be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping. These are automatically added to a model network as needed by CRAM. 
 
 All nodes in the network maintain mass balance during every step of the solution.
 
+.. image:: /images/node-types.png
+   :scale: 75%
+   :align: center
+   :alt: two types of nodes in network
+   
 To add a node to the network click on the Create Node button on the toolbar (shown below) or click on the Excel CRAM->Network->Add Object... menu item and select Node from the object type dropdown box.
 
 .. image:: /images/add-node.png
@@ -48,6 +60,11 @@ Adding a Link
 
 A link connects two nodes. It has four user configurable parameters which help determine the amount of flow passing from the "From Node" to the "To Node" in the model. The four parameters are:
 
+.. image:: /images/link-image.png
+   :scale: 75%
+   :align: center
+   :alt: image of network link
+   
 1. **High:** The High parameter is the maximum amount of flow that can pass through the link in a single solution time step. Typically the default value of "Infinite" is used. However, integer values are commonly used to represent pipeline capacities. 
 
 .. note:: **Advanced Note:** *If the total amount of water at the From Node is greater than the sum of all High parameters on all arcs leaving that node, an infeasible solution will occur. Using the default value of "infinite" avoids this problem.*
@@ -117,6 +134,11 @@ Inflows provide the source of water for an Excel CRAM network. Once in the model
 - An inflow can be connected TO any node (except a mass balance node)
 - An inflow will always be connected FROM the mass balance node
 
+.. image:: /images/inflow-image.png
+   :scale: 65%
+   :align: center
+   :alt: inflow connected to a node
+
 Inflows only have one parameter, Flow.  For Inflows, the Flow defines both the High and the Low on the arc. If the Flow from an inflow is not able to find a route through the network and back to the mass balance node an infeasible solution will occur.  
 
 To add an inflow to the network click on the Create Inflow button on the toolbar (shown below) or click on the Excel CRAM->Network->Add Object... menu item and select Inflow from the dialog box that appears.
@@ -164,6 +186,11 @@ The capacity of a demand is determined by the High parameter while the minimum f
 
 - A demand can be connected FROM any node (except a Mass-Balance node)
 - A demand is always connected TO a mass balance node
+
+.. image:: /images/demand-image.png
+   :scale: 65%
+   :align: center
+   :alt: demand connected from a node
 
 To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the Excel CRAM->Network->Add Object... menu item and select Demand from the dialog box that appears.
 
@@ -240,19 +267,21 @@ The **To Node** identifies the node at the downstream end of the inflow.  This n
 
 .. note:: *Reservoirs usually do not have time series data associated with them. However, links that are a part of the reservoir, such as those used to represent target storage, usually do have time series data.*
 
-** xxx The Dead Storage Field is currently inactive. xxx **
+The **Dead Storage** is currently inactive.
 
-** xxx The Active Storage Field is currently inactive. xxx **
+The **Active Storage** is currently inactive.
 
 The **Total Capacity** provides a place to record the total storage capacity of the reservoir. This can be either active storage or total storage depending on how you have decided to model the reservoir.
 
-.. note:: * xxx The Total Capacity must be greater than/ less than the maximum value added to the reservoir elevation-area-volume data (curve).*
+.. note:: *The Total Capacity must be less than or equal to the maximum value added to the reservoir elevation-area-volume curve (data).*
 
 The **Initial Contents** provides a place to record the initial storage contents of the reservoir. This can be a variety of values (including zero), depending on how the reservoir is modeled.
 
 The **Volume-Area Curve** contains pairs of numbers that describe the volume-area relationship for the reservoir.  This table of numbers is used to calculate average surface area over a time step (minor time step) to calculate evaporation. The numbers for this field are entered in increasing order from the lowest volume to the reservoir's total capacity with the corresponding area following the colon. (i.e.  0:0, 100:40, 200:60 would represent a reservoir that had covered 40 acres when it contained 100 acre-feet (AF) and covered 60 acres when it contained 200 AF). Values between the points are linearly interpolated to determine volume and surface area. Using the previous example, 150 AF of water would correspond to 50 acres in surface area.
 
-The **Seasonal Evaporation Rate Series** stores the evaporation rates as a series of comma delimited numbers. There should be one value for each minor time step in your model. **xxx There are 3 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step) 2. Monthly evaporation rates 3. xxx** If monthly (seasonal) evaporation rates are used, note that they do not vary from year to year.
+The **Seasonal Evaporation Rate Series** stores the evaporation rates as a series of comma delimited numbers. There should be one value for each minor time step in your model. 
+
+.. note:: *There are 2 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step). 2. Annual reapeating evaporation values (by Minor Time Step).*
 
 Advanced Reservoir Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~
