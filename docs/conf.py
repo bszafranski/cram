@@ -46,7 +46,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'CRAM'
-copyright = u'2017, Lynker Technologies'
+copyright = u'2018, Lynker Technologies'
 author = u'Bill Szafranski'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -89,7 +89,18 @@ html_theme = "sphinx_rtd_theme"
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+# html_theme_options = {
+#
+#}
+
+#html_favicon = "images/cram-icon-16.ico"
+html_favicon = "images/cram-icon-32.png"
+
+#html_logo = "images/cram-icon-32.png"
+#html_logo = "images/cram-header-small.png"
+#html_logo = "images/cram-white-logo.png"
+#html_logo = "images/cram-circle-logo.png"
+html_logo = "images/cram-sidebar-final_v2.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

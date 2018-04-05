@@ -1,0 +1,8 @@
+1. Open anaconda command line prompt
+2. Navigate to Sphynx documentation folder using cd [folder name] and cd...
+3. My data is in C/CRAM/git-CRAM
+
+4. quickstart setup has already been done to build configuratin (conf.py). Only needs to be done once to setup project
+
+5. Now we're just updating html - call "make html" from command prompt in project folder. 
+This must be called from the "docs" folder because it contains the "makefile" for sphinx to execute the build.

@@ -5,11 +5,11 @@ CRAM is a network flow model used to simulate water resources systems. It provid
 
 CRAM uses priority-based assignments applied to the physical constraints of a system to properly allocate water according to past, present or future operations. CRAM's interface allows users to build networks that represent real systems. The network is then forced by hydrologic time series (flow) at a consistent time step.
 
-Excel CRAM networks are constructed from several types of active elements, connected by nodes.  There are 8 types of active elements: Nodes, Links, Inflows, Demands, Decrees, Reservoirs, Instream Flows, and Return Flows.
+CRAM networks are constructed from several types of active elements, connected by nodes.  There are 8 types of active elements: Nodes, Links, Inflows, Demands, Decrees, Reservoirs, Instream Flows, and Return Flows.
 
-Water enters the network through inflows. Like a real system, all the water that enters the system plus any change in storage at reservoirs in the system must be equal to outflows (such as through demands or links that represent river reaches that leave the study area) and losses (such as evaporation or losses to groundwater.) Excel CRAM automatically enforces mass balance.
+Water enters the network through inflows. Like a real system, all the water that enters the system plus any change in storage at reservoirs in the system must be equal to outflows (such as through demands or links that represent river reaches that leave the study area) and losses (such as evaporation or losses to groundwater.) CRAM automatically enforces mass balance.
 
-When Excel CRAM solves the network, it supplies water first to those elements with the highest numerical priority, subject to any constraints, such as physical availability and capacity constraints. This makes Excel CRAM highly suitable for analyzing systems where water rights must be administered in priority, or operations involve prioritized targets.
+When CRAM solves the network, it supplies water first to those elements with the highest numerical priority, subject to any constraints, such as physical availability and capacity constraints. This makes CRAM highly suitable for analyzing systems where water rights must be administered in priority, or operations involve prioritized targets.
 
 Applications
 ^^^^^^^^^^^^

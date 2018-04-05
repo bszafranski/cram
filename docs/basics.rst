@@ -74,7 +74,7 @@ Most of the CRAM model data (time series data, model parameters, network connect
 +---------------------------------+-------------+---------------------------------------------------------------------+
 | Sheet Name                      | User Level  |  Description                                                        |
 +=================================+=============+=====================================================================+
-| User Controls                   | Basic       |  Contains settings for the model, most recent run.                  |
+| User Controls                   | Basic       | Contains settings for the model, most recent run.                   |
 +---------------------------------+-------------+---------------------------------------------------------------------+
 | Network Schematic               | Basic       | Contains the Network diagram                                        |
 +---------------------------------+-------------+---------------------------------------------------------------------+
@@ -93,7 +93,7 @@ Most of the CRAM model data (time series data, model parameters, network connect
 +---------------------+-------------+-------------------------------------------------------------------------------------------------------------------------+
 | Sheet Name          | User Level  |  Description                                                                                                            |
 +=====================+=============+=========================================================================================================================+
-| Global Data Sheet   | Developer   |  Contains settings for ExcelCRAM model, global variables for model execution, most recent run and dialog box settings.  |
+| Global Data Sheet   | Developer   | Contains settings for CRAM model, global variables for model execution, most recent run and dialog box settings.        |
 +---------------------+-------------+-------------------------------------------------------------------------------------------------------------------------+
 | Node Sheet          | Developer   | Contains text data used in node dialog box.                                                                             |
 +---------------------+-------------+-------------------------------------------------------------------------------------------------------------------------+

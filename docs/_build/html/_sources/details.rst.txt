@@ -3,4 +3,5 @@
 Model Details
 =============
 
-Coming Soon.
+This section is under construction.
+

@@ -13,6 +13,8 @@
 
   
   
+    <link rel="shortcut icon" href="_static/cram-icon-32.png"/>
+  
   
   
 
@@ -59,6 +61,9 @@
             <a href="index.html" class="icon icon-home"> CRAM
           
 
+          
+            
+            <img src="_static/cram-sidebar-final_v2.png" class="logo" />
           
           </a>
 
@@ -193,9 +198,9 @@
 <h1>Creating a Network<a class="headerlink" href="#creating-a-network" title="Permalink to this headline">¶</a></h1>
 <p>In its simplest form, a CRAM network consists of a single node with one inflow and one demand.  The inflow specifies the amount of water entering the system and the demand specifies the amount of water leaving the system.  Because CRAM enforces mass-balance, all of the flow entering through the Inflow must exit through the Demand. If the demand has been constrained to a capacity less than the Inflow flow found in one of the minor time steps the model will determine that an infeasible solution has occured.</p>
 <img alt="_images/basic-network.png" class="align-center" src="_images/basic-network.png" />
-<p>Most Excel CRAM models will consist of a few hundred nodes connected by a larger number of links allowing water (flow) to be delivered to many different competing demands from a variety of sources. CRAM optimizes the system to determine the most efficient use of the water given the delivery constraints (both physical and administrative). After a solution has been attained, the user may want to experiment with additional stresses, constraints, or options on the simulation network. This is a core component of CRAM’s scenario analysis.</p>
+<p>Most CRAM models will consist of a few hundred nodes connected by a larger number of links allowing water (flow) to be delivered to many different competing demands from a variety of sources. CRAM optimizes the system to determine the most efficient use of the water given the delivery constraints (both physical and administrative). After a solution has been attained, the user may want to experiment with additional stresses, constraints, or options on the simulation network. This is a core component of CRAM’s scenario analysis.</p>
 <a class="reference internal image-reference" href="_images/complex-network.png"><img alt="_images/complex-network.png" class="align-center" src="_images/complex-network.png" style="width: 979.2px; height: 589.6px;" /></a>
-<p>The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM’s operation steps allow modeling of the most complex exchanges and water rights. Please read the additional information about these features to be aware of “gotchas” that you may encounter when using the Excel CRAM modeling tool. The blue note boxes provide tips that may be helful in avoiding modeling errors such as creating infeasible solutions.</p>
+<p>The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM’s operation steps allow modeling of the most complex exchanges and water rights. Please read the additional information about these features to be aware of “gotchas” that you may encounter when using the CRAM modeling tool. The blue note boxes provide tips that may be helful in avoiding modeling errors such as creating infeasible solutions.</p>
 <div class="section" id="adding-a-node">
 <h2>Adding a Node<a class="headerlink" href="#adding-a-node" title="Permalink to this headline">¶</a></h2>
 <p>Nodes are the basic building block of a CRAM network. Nodes are used to connect other network arc types (e.g., links, inflows, demands) and help determine the potential paths for flow in the model. There are two kinds of nodes in a model.</p>
@@ -205,14 +210,14 @@
 </ol>
 <p>All nodes in the network maintain mass balance during every step of the solution.</p>
 <a class="reference internal image-reference" href="_images/node-types.png"><img alt="two types of nodes in network" class="align-center" src="_images/node-types.png" style="width: 367.5px; height: 188.25px;" /></a>
-<p>To add a node to the network click on the Create Node button on the toolbar (shown below) or click on the Excel CRAM-&gt;Network-&gt;Add Object… menu item and select Node from the object type dropdown box.</p>
+<p>To add a node to the network click on the Create Node button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Node from the object type dropdown box.</p>
 <img alt="_images/add-node.png" src="_images/add-node.png" />
 <img alt="_images/add-node2.png" src="_images/add-node2.png" />
 <div class="section" id="node-basics">
 <h3>Node Basics<a class="headerlink" href="#node-basics" title="Permalink to this headline">¶</a></h3>
 <p>The basic features necessary to add a model node are discussed in this section. Here we step through the fields on the <strong>Edit Node</strong> dialog box.</p>
 <img alt="_images/edit-node.png" src="_images/edit-node.png" />
-<p>The <strong>Node Number</strong> is automatically assigned by Excel CRAM. Nodes can not be reused in the network.</p>
+<p>The <strong>Node Number</strong> is automatically assigned by CRAM. Nodes can not be reused in the network.</p>
 <p><strong>The Node Name</strong> is user-defined, and is typically left blank. If the Node Name is used, it must be an ASCII string (alphanumeric and/or special characters). A good example for a node name would be a stream gage name, location, or other geographic reference.</p>
 <p>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</p>
 </div>
@@ -251,14 +256,14 @@
 <ol class="arabic simple" start="4">
 <li><strong>Flow:</strong>  The flow parameter is the optimized result of a model solution. The user is unable to change this value - it is model output only.</li>
 </ol>
-<p>To add a link to the network click on the Create Link button on the toolbar (shown below) or click on the Excel CRAM-&gt;Network-&gt;Add Object… menu item and select Link from the dropdown box.</p>
+<p>To add a link to the network click on the Create Link button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Link from the dropdown box.</p>
 <img alt="_images/add-link.png" src="_images/add-link.png" />
 <img alt="_images/add-link2.png" src="_images/add-link2.png" />
 <div class="section" id="link-basics">
 <h3>Link Basics<a class="headerlink" href="#link-basics" title="Permalink to this headline">¶</a></h3>
 <p>The basic features necessary to build a model link are discussed in this section. Here we step through the fields on the <strong>Edit Link</strong> dialog box.</p>
 <img alt="_images/edit-link.png" src="_images/edit-link.png" />
-<p>The <strong>Link Number</strong> is automatically assigned by Excel CRAM.  Link numbers can not be reused in the network.</p>
+<p>The <strong>Link Number</strong> is automatically assigned by CRAM.  Link numbers can not be reused in the network.</p>
 <p>The <strong>Link Name</strong> is a user-defined ASCII string that povide a common name to describe the reach. It is recommended that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.</p>
 <p>The <strong>From Node</strong> identifies the node at the upstream end of the link.</p>
 <p>The <strong>To Node</strong> identifies the node at the downstream end of the link. The To Node is where the flow from this link enters and mixes with all other sources (links).</p>
@@ -293,21 +298,21 @@
 </div>
 <div class="section" id="adding-an-inflow">
 <h2>Adding an Inflow<a class="headerlink" href="#adding-an-inflow" title="Permalink to this headline">¶</a></h2>
-<p>Inflows provide the source of water for an Excel CRAM network. Once in the model the water (flow) is divided up among the demands based on the total priority of routing, from the inflow to the bottom of the network. Behind the scense, the model “circulates” the water using the mass balance nodes.</p>
+<p>Inflows provide the source of water for an CRAM network. Once in the model the water (flow) is divided up among the demands based on the total priority of routing, from the inflow to the bottom of the network. Behind the scense, the model “circulates” the water using the mass balance nodes.</p>
 <ul class="simple">
 <li>An inflow can be connected TO any node (except a mass balance node)</li>
 <li>An inflow will always be connected FROM the mass balance node</li>
 </ul>
 <a class="reference internal image-reference" href="_images/inflow-image.png"><img alt="inflow connected to a node" class="align-center" src="_images/inflow-image.png" style="width: 317.85px; height: 255.45px;" /></a>
 <p>Inflows only have one parameter, Flow.  For Inflows, the Flow defines both the High and the Low on the arc. If the Flow from an inflow is not able to find a route through the network and back to the mass balance node an infeasible solution will occur.</p>
-<p>To add an inflow to the network click on the Create Inflow button on the toolbar (shown below) or click on the Excel CRAM-&gt;Network-&gt;Add Object… menu item and select Inflow from the dialog box that appears.</p>
+<p>To add an inflow to the network click on the Create Inflow button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Inflow from the dialog box that appears.</p>
 <img alt="_images/add-inflow.png" src="_images/add-inflow.png" />
 <img alt="_images/add-node2.png" src="_images/add-node2.png" />
 <div class="section" id="inflow-basics">
 <h3>Inflow Basics<a class="headerlink" href="#inflow-basics" title="Permalink to this headline">¶</a></h3>
 <p>The basic features necessary to add model inflows are discussed in this section. Here we step through the fields on the <strong>Edit Inflow</strong> dialog box.</p>
 <img alt="_images/edit-inflow.png" src="_images/edit-inflow.png" />
-<p>The <strong>Inflow Number</strong> is automatically assigned by Excel CRAM.  Inflow numbers can not be reused in the network.</p>
+<p>The <strong>Inflow Number</strong> is automatically assigned by CRAM.  Inflow numbers can not be reused in the network.</p>
 <p>The <strong>Inflow Name</strong> is a user-defined ASCII string that povide a familiar name to describe the inflow. <em>Inflows are ALWAYS named by users within the model.</em> We recommend that the name be unique within the first 32 characters but this not required.  The name should normally be less than 256 characters in length.</p>
 <p>The <strong>To Node</strong> identifies the node at the receiving end of the inflow.  The To Node is where the flow from the inflow enters and mixes with all other sources (links or inflows).</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the inflow being edited does not currently have any time series data associated with it the button will read Create Time Series Sheet.  Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.</p>
@@ -334,21 +339,21 @@
 </div>
 <div class="section" id="adding-a-demand">
 <h2>Adding a Demand<a class="headerlink" href="#adding-a-demand" title="Permalink to this headline">¶</a></h2>
-<p>Demands are used to route water to specific users in the Excel CRAM network (e.g., cities, farmers, ditches). The water that passes through a demand arc is not available for use anywhere else in the network during the same time step.  Demands can be thought of as the final destination of water within the network.</p>
+<p>Demands are used to route water to specific users in the CRAM network (e.g., cities, farmers, ditches). The water that passes through a demand arc is not available for use anywhere else in the network during the same time step.  Demands can be thought of as the final destination of water within the network.</p>
 <p>The capacity of a demand is determined by the High parameter while the minimum flow that must pass through a demand arc is set by the Low parameter.</p>
 <ul class="simple">
 <li>A demand can be connected FROM any node (except a Mass-Balance node)</li>
 <li>A demand is always connected TO a mass balance node</li>
 </ul>
 <a class="reference internal image-reference" href="_images/demand-image.png"><img alt="demand connected from a node" class="align-center" src="_images/demand-image.png" style="width: 317.85px; height: 256.1px;" /></a>
-<p>To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the Excel CRAM-&gt;Network-&gt;Add Object… menu item and select Demand from the dialog box that appears.</p>
+<p>To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Demand from the dialog box that appears.</p>
 <img alt="_images/add-demand.png" src="_images/add-demand.png" />
 <img alt="_images/add-demand2.png" src="_images/add-demand2.png" />
 <div class="section" id="demand-basics">
 <h3>Demand Basics<a class="headerlink" href="#demand-basics" title="Permalink to this headline">¶</a></h3>
 <p>The basic features necessary to add model demands are discussed in this section. Here we step through the fields on the <strong>Edit Demand</strong> dialog box.</p>
 <img alt="_images/edit-demand.png" src="_images/edit-demand.png" />
-<p>The <strong>Demand Number</strong> is automatically assigned by Excel CRAM. Demand numbers can not be reused in the network.</p>
+<p>The <strong>Demand Number</strong> is automatically assigned by CRAM. Demand numbers can not be reused in the network.</p>
 <p>The <strong>Demand Name</strong> is a user-defined ASCII string that povide a familiar name to describe the demand. <em>Demands are ALWAYS named by users within the model.</em> We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.</p>
 <p>The <strong>From Node</strong> identifies the node at the upstream or distributing side of the demand.</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the demand being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.</p>
@@ -382,15 +387,15 @@
 </div>
 <div class="section" id="adding-a-reservoir">
 <h2>Adding a Reservoir<a class="headerlink" href="#adding-a-reservoir" title="Permalink to this headline">¶</a></h2>
-<p>An Excel CRAM Reservoir is used to simulate the storage of water in a reservoir. This network object may be used to represent either surface or groundwater storage systems. Reservoirs can be built to include complex operations such as hydropower, water rights exchanges, flood storage and dead storage.</p>
-<p>To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the Excel CRAM-&gt;Network-&gt;Add Object… menu item and select Demand from the dialog box that appears.</p>
+<p>A CRAM Reservoir is used to simulate the storage of water in a reservoir. This network object may be used to represent either surface or groundwater storage systems. Reservoirs can be built to include complex operations such as hydropower, water rights exchanges, flood storage and dead storage.</p>
+<p>To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Demand from the dialog box that appears.</p>
 <img alt="_images/add-reservoir.png" src="_images/add-reservoir.png" />
 <img alt="_images/add-reservoir2.png" src="_images/add-reservoir2.png" />
 <div class="section" id="reservoir-basics">
 <h3>Reservoir Basics<a class="headerlink" href="#reservoir-basics" title="Permalink to this headline">¶</a></h3>
 <p>The basic features necessary to add reservoirs are discussed in this section. Here we step through the fields on the <strong>Edit Reservoir</strong> dialog box.</p>
 <img alt="_images/edit-reservoir.png" src="_images/edit-reservoir.png" />
-<p>The <strong>Reservoir Number</strong> is automatically assigned by Excel CRAM. Reservoir numbers can not be reused in the network.</p>
+<p>The <strong>Reservoir Number</strong> is automatically assigned by CRAM. Reservoir numbers can not be reused in the network.</p>
 <p>The <strong>Reservoir Name</strong> is a user-defined ASCII string that povide a familiar name to describe the reservoir. <em>Reservoirs are ALWAYS named by users within the model.</em> We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.</p>
 <p>The <strong>From Node</strong> identifies the node at the upstream or distributing side of the reservoir.</p>
 <p>The <strong>To Node</strong> identifies the node at the downstream end of the inflow.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.</p>
@@ -452,7 +457,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Lynker Technologies.
+        &copy; Copyright 2018, Lynker Technologies.
 
     </p>
   </div>
