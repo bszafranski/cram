@@ -22,6 +22,5 @@ Guide
    create-network
    details
    interactive
-   license
    help
 
