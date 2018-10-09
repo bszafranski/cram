@@ -1,7 +1,7 @@
 Creating a Network
 ==================
 
-In its simplest form, a CRAM network consists of a single node with one inflow and one demand.  The inflow specifies the amount of water entering the system and the demand specifies the amount of water leaving the system.  Because CRAM enforces mass-balance, all of the flow entering through the Inflow must exit through the Demand. If the demand has been constrained to a capacity less than the Inflow flow found in one of the minor time steps the model will determine that an infeasible solution has occured.
+In its simplest form, a CRAM network consists of a single node with one inflow and one demand.  The inflow specifies the amount of water entering the system and the demand specifies the amount of water leaving the system.  Because CRAM enforces mass-balance, all flow entering through the Inflow must exit through the Demand. If the demand has been constrained to a capacity less than the Inflow flow found in one of the minor time steps the model will determine that an infeasible solution has occurred.
 
 .. image:: /images/basic-network.png
    :align: center
@@ -10,17 +10,20 @@ Most CRAM models will consist of a few hundred nodes connected by a larger numbe
 
 .. image:: /images/complex-network.png
    :align: center
-   :scale: 80%
+   :scale: 60%
 
-The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM's operation steps allow modeling of the most complex exchanges and water rights. Please read the additional information about these features to be aware of "gotchas" that you may encounter when using the CRAM modeling tool. The blue note boxes provide tips that may be helful in avoiding modeling errors such as creating infeasible solutions. 
+The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM's operation steps allow modeling of the most complex exchanges and water rights. Please read the additional information about these features to be aware of "gotchas" that you may encounter when using the CRAM modeling tool. 
+
+.. note:: The blue note boxes provide tips that may be helpful in avoiding modeling errors such as creating infeasible solutions.
+ 
 
 Adding a Node
 ^^^^^^^^^^^^^
 
 Nodes are the basic building block of a CRAM network. Nodes are used to connect other network arc types (e.g., links, inflows, demands) and help determine the potential paths for flow in the model. There are two kinds of nodes in a model.
 
-1. General nodes are nodes that have a single instance and physical location in the model. These are the types of nodes added to the model by the user. General nodes can be idetified by a circle with a number inside of it.  
-2. Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see The Network Schematic) it is represented in multiple locations. However, they all represent the same node in the model. For instance an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic an be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping. These are automatically added to a model network as needed by CRAM. 
+1. General nodes are nodes that have a single instance and physical location in the model. These are the types of nodes added to the model by the user. General nodes can be identified by a circle with a number inside of it.  
+2. Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see The Network Schematic) it is represented in multiple locations. However, they all represent the same node in the model. For instance, an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic can be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping. These are automatically added to a model network as needed by CRAM. 
 
 All nodes in the network maintain mass balance during every step of the solution.
 
@@ -29,7 +32,7 @@ All nodes in the network maintain mass balance during every step of the solution
    :align: center
    :alt: two types of nodes in network
    
-To add a node to the network click on the Create Node button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Node from the object type dropdown box.
+To add a node to the network, click on the Create Node button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Node from the object type drop-down box.
 
 .. image:: /images/add-node.png
 
@@ -43,9 +46,9 @@ The basic features necessary to add a model node are discussed in this section. 
 
 .. image:: /images/edit-node.png
 
-The **Node Number** is automatically assigned by CRAM. Nodes can not be reused in the network.
+The **Node Number** is automatically assigned by CRAM. Nodes cannot be reused in the network.
 
-**The Node Name** is user-defined, and is typically left blank. If the Node Name is used, it must be an ASCII string (alphanumeric and/or special characters). A good example for a node name would be a stream gage name, location, or other geographic reference.
+**The Node Name** is user-defined and is typically left blank. If the Node Name is used, it must be an ASCII string (alphanumeric and/or special characters). A good example for a node name would be a stream gage name, location, or other geographic reference.
  
 The **Comment** box allows the user to add any notes about the node that might be important to the design.
 
@@ -65,13 +68,13 @@ A link connects two nodes. It has four user configurable parameters which help d
    :align: center
    :alt: image of network link
    
-1. **High:** The High parameter is the maximum amount of flow that can pass through the link in a single solution time step. Typically the default value of "Infinite" is used. However, integer values are commonly used to represent pipeline capacities. 
+1. **High:** The High parameter is the maximum amount of flow that can pass through the link in a single solution time step. Typically, the default value of "Infinite" is used. However, integer values are commonly used to represent pipeline capacities. 
 
 .. note:: **Advanced Note:** *If the total amount of water at the From Node is greater than the sum of all High parameters on all arcs leaving that node, an infeasible solution will occur. Using the default value of "infinite" avoids this problem.*
 
-2. **Low:**  The Low parameter is the minimum amount of flow that MUST pass through the link in a single solution time step. Typically the default value of "0" is used. 
+2. **Low:**  The Low parameter is the minimum amount of flow that MUST pass through the link in a single solution time step. Typically, the default value of "0" is used. 
 
-.. note:: *If the Low is set higher than the High parameter, an infeasible solution will occur.  If the From Node for this link does not have as much flow into it as the sum of all of the Low parameters leaving that node, an infeasible solution will occur.*
+.. note:: *If the Low is set higher than the High parameter, an infeasible solution will occur.  If the From Node for this link does not have as much flow into it as the sum of all the Low parameters leaving that node, an infeasible solution will occur.*
 
 3. **Priority:**  The Priority parameter helps the network to determine the relative priority of sending water through a link.  Priorities (or ranks) in the network model are additive. 
 
@@ -79,7 +82,7 @@ A link connects two nodes. It has four user configurable parameters which help d
 
 4. **Flow:**  The flow parameter is the optimized result of a model solution. The user is unable to change this value - it is model output only.
 
-To add a link to the network click on the Create Link button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Link from the dropdown box.
+To add a link to the network, click on the Create Link button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Link from the drop-down box.
 
 .. image:: /images/add-link.png
 
@@ -92,15 +95,15 @@ The basic features necessary to build a model link are discussed in this section
 
 .. image:: /images/edit-link.png
 
-The **Link Number** is automatically assigned by CRAM.  Link numbers can not be reused in the network.
+The **Link Number** is automatically assigned by CRAM.  Link numbers cannot be reused in the network.
 
-The **Link Name** is a user-defined ASCII string that povide a common name to describe the reach. It is recommended that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.
+The **Link Name** is a user-defined ASCII string that provides a common name to describe the reach. It is recommended that the name be unique within the first 32 characters, but this not required. The name should normally be less than 256 characters in length.
 
 The **From Node** identifies the node at the upstream end of the link. 
 
 The **To Node** identifies the node at the downstream end of the link. The To Node is where the flow from this link enters and mixes with all other sources (links).
 
-**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the link being edited does not currently have any time series data associated with it, the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.
+**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the link being edited does not currently have any time series data associated with it, the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.
 
 .. note:: *Most links DO NOT have time series data associated with them. Links used to build advanced reservoirs are an exception to this.* 
 
@@ -129,7 +132,7 @@ Advanced Link Setup
 Adding an Inflow
 ^^^^^^^^^^^^^^^^
 
-Inflows provide the source of water for an CRAM network. Once in the model the water (flow) is divided up among the demands based on the total priority of routing, from the inflow to the bottom of the network. Behind the scense, the model "circulates" the water using the mass balance nodes. 
+Inflows provide the source of water for an CRAM network. Once in the model the water (flow) is divided up among the demands based on the total priority of routing, from the inflow to the bottom of the network. Behind the scenes, the model "circulates" the water using the mass balance nodes. 
 
 - An inflow can be connected TO any node (except a mass balance node)
 - An inflow will always be connected FROM the mass balance node
@@ -141,7 +144,7 @@ Inflows provide the source of water for an CRAM network. Once in the model the w
 
 Inflows only have one parameter, Flow.  For Inflows, the Flow defines both the High and the Low on the arc. If the Flow from an inflow is not able to find a route through the network and back to the mass balance node an infeasible solution will occur.  
 
-To add an inflow to the network click on the Create Inflow button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Inflow from the dialog box that appears.
+To add an inflow to the network, click on the Create Inflow button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Inflow from the dialog box that appears.
 
 
 .. image:: /images/add-inflow.png
@@ -155,13 +158,13 @@ The basic features necessary to add model inflows are discussed in this section.
 
 .. image:: /images/edit-inflow.png
 
-The **Inflow Number** is automatically assigned by CRAM.  Inflow numbers can not be reused in the network.
+The **Inflow Number** is automatically assigned by CRAM.  Inflow numbers cannot be reused in the network.
 
-The **Inflow Name** is a user-defined ASCII string that povide a familiar name to describe the inflow. *Inflows are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters but this not required.  The name should normally be less than 256 characters in length.
+The **Inflow Name** is a user-defined ASCII string that provides a familiar name to describe the inflow. *Inflows are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters, but this not required.  The name should normally be less than 256 characters in length.
 
 The **To Node** identifies the node at the receiving end of the inflow.  The To Node is where the flow from the inflow enters and mixes with all other sources (links or inflows).
 
-**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the inflow being edited does not currently have any time series data associated with it the button will read Create Time Series Sheet.  Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.
+**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the inflow being edited does not currently have any time series data associated with it the button will read Create Time Series Sheet.  Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.
 
 .. note:: *Inflows should always have time series data associated with them. Failure to create a Time Series Sheet will result in a zero inflow.*
 
@@ -192,7 +195,7 @@ The capacity of a demand is determined by the High parameter while the minimum f
    :align: center
    :alt: demand connected from a node
 
-To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Demand from the dialog box that appears.
+To add a demand to the network, click on the Create Demand button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Demand from the dialog box that appears.
 
 .. image:: /images/add-demand.png
 
@@ -205,13 +208,13 @@ The basic features necessary to add model demands are discussed in this section.
 
 .. image:: /images/edit-demand.png
 
-The **Demand Number** is automatically assigned by CRAM. Demand numbers can not be reused in the network.
+The **Demand Number** is automatically assigned by CRAM. Demand numbers cannot be reused in the network.
 
-The **Demand Name** is a user-defined ASCII string that povide a familiar name to describe the demand. *Demands are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.
+The **Demand Name** is a user-defined ASCII string that provides a familiar name to describe the demand. *Demands are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters, but this not required. The name should normally be less than 256 characters in length.
 
 The **From Node** identifies the node at the upstream or distributing side of the demand.
 
-**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the demand being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.
+**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the demand being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.
 
 .. note:: *Demands should always have time series data associated with them. Failure to create a Time Series Sheet will result in the demand having a default value of infinite.*
 
@@ -242,7 +245,7 @@ Adding a Reservoir
 
 A CRAM Reservoir is used to simulate the storage of water in a reservoir. This network object may be used to represent either surface or groundwater storage systems. Reservoirs can be built to include complex operations such as hydropower, water rights exchanges, flood storage and dead storage.  
 
-To add a demand to the network click on the Create Demand button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Demand from the dialog box that appears.
+To add a reservoir to the network, click on the Create Reservoir button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Reservoir from the dialog box that appears.
 
 .. image:: /images/add-reservoir.png
 
@@ -255,15 +258,15 @@ The basic features necessary to add reservoirs are discussed in this section. He
 
 .. image:: /images/edit-reservoir.png
 
-The **Reservoir Number** is automatically assigned by CRAM. Reservoir numbers can not be reused in the network.
+The **Reservoir Number** is automatically assigned by CRAM. Reservoir numbers cannot be reused in the network.
 
-The **Reservoir Name** is a user-defined ASCII string that povide a familiar name to describe the reservoir. *Reservoirs are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters but this not required. The name should normally be less than 256 characters in length.
+The **Reservoir Name** is a user-defined ASCII string that provides a familiar name to describe the reservoir. *Reservoirs are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters, but this not required. The name should normally be less than 256 characters in length.
 
 The **From Node** identifies the node at the upstream or distributing side of the reservoir.
 
 The **To Node** identifies the node at the downstream end of the inflow.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.
 
-**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the reservoir being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold timeseries data for the link. The user will need to populate the sheet with the appropriate data.
+**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the reservoir being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.
 
 .. note:: *Reservoirs usually do not have time series data associated with them. However, links that are a part of the reservoir, such as those used to represent target storage, usually do have time series data.*
 
@@ -281,7 +284,7 @@ The **Volume-Area Curve** contains pairs of numbers that describe the volume-are
 
 The **Seasonal Evaporation Rate Series** stores the evaporation rates as a series of comma delimited numbers. There should be one value for each minor time step in your model. 
 
-.. note:: *There are 2 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step). 2. Annual reapeating evaporation values (by Minor Time Step).*
+.. note:: *There are 2 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step). 2. Annual repeating evaporation values (by Minor Time Step).*
 
 Advanced Reservoir Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -298,7 +301,7 @@ Advanced Reservoir Setup
 Moving Objects in CRAM
 ^^^^^^^^^^^^^^^^^^^^^^
 
-When a new node is added to the model, it is positioned as close as possible to the last cell selected on the network schematic. The node can be repositioned by bringing up the Drawing Toolbar and clicking on the arrow to move the drawing of the node. Alternatively, right-click the node, the left click to remove the pop-up menu, then place the cursor at the edge of the node to grab it and move it.
+When a new node is added to the model, it is positioned as close as possible to the last cell selected on the network schematic. The node can be repositioned by bringing up the Drawing Toolbar and clicking on the arrow to move the drawing of the node. Alternatively, right-click the node, then left-click to remove the pop-up menu, then place the cursor at the edge of the node to grab it and move it.
 
 .. image:: /images/cursor.png
 

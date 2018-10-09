@@ -11,6 +11,8 @@ Water enters the network through inflows. Like a real system, all the water that
 
 When CRAM solves the network, it supplies water first to those elements with the highest numerical priority, subject to any constraints, such as physical availability and capacity constraints. This makes CRAM highly suitable for analyzing systems where water rights must be administered in priority, or operations involve prioritized targets.  
 
+
+
 Applications
 ^^^^^^^^^^^^
 

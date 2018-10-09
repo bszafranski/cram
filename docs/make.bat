@@ -11,6 +11,12 @@ set SOURCEDIR=.
 set BUILDDIR=_build
 set SPHINXPROJ=CRAM
 
+if "%1" == "pdf" (
+        %SPHINXBUILD% -b pdf -c %SOURCEDIR% %ALLSPHINXOPTS% %BUILDDIR%/pdf 
+        echo.
+        echo.Build finished. The PDF files are in %BUILDDIR%/pdf
+        goto end
+)
 if "%1" == "" goto help
 
 %SPHINXBUILD% >NUL 2>NUL

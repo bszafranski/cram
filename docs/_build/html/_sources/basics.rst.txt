@@ -23,7 +23,7 @@ The Network Schematic
 The network schematic shows the physical connections in the model network. It is the user interface for CRAM, displaying a graphical representation of the links and nodes that represent the system. This includes inflows, reservoirs, demands, return flows, and groundwater use. **Click the image below for a full resolution network schematic.**
 
 .. image:: /images/network-schematic.png
-   :scale: 100%
+   :scale: 70%
    :alt: CRAM Demo Model Network Schematic
    :align: center
    
@@ -55,7 +55,8 @@ Operation Steps
 
 Operations steps are used to build complex system operations that are often involved with water rights, reservoirs and exchanges. More information on the use of operation steps can be found in the :ref:`details-label` documentation.
 
-.. image:: /images/operation-step-mgr.png
+.. image:: /images/ops-step-manager.png
+   :alt: two types of nodes in network
 
 User Code
 ^^^^^^^^^
