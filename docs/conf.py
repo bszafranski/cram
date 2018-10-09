@@ -32,7 +32,7 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['rst2pdf.pdfbuilder']
+#extensions = ['rst2pdf.pdfbuilder']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -197,17 +197,17 @@ texinfo_documents = [
 # ('index', u'MyProject', u'My Project', u'Author Name', dict(pdf_compressed = True))
 # would mean that specific document would be compressed regardless of the global
 # pdf_compressed setting.
-pdf_documents = [('index', u'MyProject', u'My Project', u'Author Name'),]
+#pdf_documents = [('index', u'MyProject', u'My Project', u'Author Name'),]
 # index - master document
 # rst2pdf - name of the generated pdf
 # Sample rst2pdf doc - title of the pdf
 # Your Name - author name in the pdf
 
 # A comma-separated list of custom stylesheets. Example:
-pdf_stylesheets = ['sphinx','kerning','a4']
+#pdf_stylesheets = ['sphinx','kerning','a4']
 
 # A list of folders to search for stylesheets. Example:
-pdf_style_path = ['.', '_styles']
+#pdf_style_path = ['.', '_styles']
 
 # Create a compressed PDF
 # Use True/False or 1/0
@@ -272,12 +272,12 @@ pdf_style_path = ['.', '_styles']
 #pdf_use_toc = True
 
 # How many levels deep should the table of contents be?
-pdf_toc_depth = 9999
+#pdf_toc_depth = 9999
 
 # Add section number to section references
-pdf_use_numbered_links = False
+#pdf_use_numbered_links = False
 
 # Background images fitting mode
-pdf_fit_background_mode = 'scale'
+#pdf_fit_background_mode = 'scale'
 
 # -------------------------------------------------------------------
