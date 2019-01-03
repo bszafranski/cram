@@ -55,7 +55,7 @@
 
           
             
-            <img src="_static/cram-sidebar-final_v2.png" class="logo" alt="Logo"/>
+            <img src="_static/cram-sidebar-Lynker-flip.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -114,6 +114,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#adding-a-reservoir">Adding a Reservoir</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#reservoir-basics">Reservoir Basics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advanced-reservoir-setup">Advanced Reservoir Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-an-instream-flow">Adding an Instream Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instream-flow-basics">Instream Flow Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-instream-flow-setup">Advanced Instream Flow Setup</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#moving-objects-in-cram">Moving Objects in CRAM</a></li>
@@ -299,7 +304,7 @@
 <li>An inflow can be connected TO any node (except a mass balance node)</li>
 <li>An inflow will always be connected FROM the mass balance node</li>
 </ul>
-<a class="reference internal image-reference" href="_images/inflow-image.png"><img alt="inflow connected to a node" class="align-center" src="_images/inflow-image.png" style="width: 317.85px; height: 255.45px;" /></a>
+<a class="reference internal image-reference" href="_images/inflow-image.png"><img alt="inflow connected to a node" class="align-center" src="_images/inflow-image.png" style="width: 317.85px; height: 255.45000000000002px;" /></a>
 <p>Inflows only have one parameter, Flow.  For Inflows, the Flow defines both the High and the Low on the arc. If the Flow from an inflow is not able to find a route through the network and back to the mass balance node an infeasible solution will occur.</p>
 <p>To add an inflow to the network, click on the Create Inflow button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Inflow from the dialog box that appears.</p>
 <img alt="_images/add-inflow.png" src="_images/add-inflow.png" />
@@ -361,7 +366,7 @@
 <p>The <strong>Low</strong> field provides a space to specify a constant minimum flow for the demand. A value provided here will last for all minor time steps in a model run unless there is a Demand Time Series Data Sheet in the current scenario with the Low parameter specified there.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><em>If the user sets the Low value higher than the available water in a time step an infeasible solution will occur. Non-zero low values should be used sparingly</em></p>
+<p class="last"><em>If the user sets the Low value higher than the available water in a time step an infeasible solution will occur. Non-zero low values should be used sparingly.</em></p>
 </div>
 <p>The <strong>Priority</strong> field provides a space to enter the priority assigned to that demand.</p>
 </div>
@@ -394,7 +399,7 @@
 <p>The <strong>Reservoir Number</strong> is automatically assigned by CRAM. Reservoir numbers cannot be reused in the network.</p>
 <p>The <strong>Reservoir Name</strong> is a user-defined ASCII string that provides a familiar name to describe the reservoir. <em>Reservoirs are ALWAYS named by users within the model.</em> We recommend that the name be unique within the first 32 characters, but this not required. The name should normally be less than 256 characters in length.</p>
 <p>The <strong>From Node</strong> identifies the node at the upstream or distributing side of the reservoir.</p>
-<p>The <strong>To Node</strong> identifies the node at the downstream end of the inflow.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.</p>
+<p>The <strong>To Node</strong> identifies the node at the downstream end of the reservoir.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the reservoir being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -421,6 +426,48 @@
 <li>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
 <li>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</li>
 <li><strong>Output To Worksheet</strong> provides a list of check boxes for Reservoir parameters that can be written to the output worksheet when the model is run.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="adding-an-instream-flow">
+<h2>Adding an Instream Flow<a class="headerlink" href="#adding-an-instream-flow" title="Permalink to this headline">¶</a></h2>
+<p>A CRAM Instream Flow is a specialized object used in model to simulate water rights that are used to keep water in the stream and make them available below the instream flow for diversion without increasing the priority of the demands below the instream flow.</p>
+<p>To add an instream flow to the network, click on the “Create an Instream Flow” button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Reservoir from the dialog box that appears.</p>
+<img alt="_images/add-instream-flow.png" src="_images/add-instream-flow.png" />
+<img alt="_images/add-instream-flow2.png" src="_images/add-instream-flow2.png" />
+<div class="section" id="instream-flow-basics">
+<h3>Instream Flow Basics<a class="headerlink" href="#instream-flow-basics" title="Permalink to this headline">¶</a></h3>
+<p>The basic features necessary to add instream flow objects are discussed in this section. Here we step through the fields on the <strong>Edit Instream Flow</strong> dialog box.</p>
+<img alt="_images/edit-instream-flow.png" src="_images/edit-instream-flow.png" />
+<p>The <strong>ISF Number</strong> is automatically assigned by CRAM. Instream flow numbers cannot be reused in the network.</p>
+<p>The <strong>ISF Name</strong> is a user-defined ASCII string that provides a familiar name to describe the instream flow. <em>ISFs are ALWAYS named by users within the model.</em> We recommend that the name be unique within the first 32 characters, but this not required. The name should normally be less than 256 characters in length.</p>
+<p>The <strong>From Node</strong> identifies the node at the upstream or distributing side of the instream flow.</p>
+<p>The <strong>To Node</strong> identifies the node at the downstream end of the instream flow.  This node is where the flow from the instream flow re-enters the network and mixes with all other sources at the node specified in this field.</p>
+<p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the instream flow being edited does not currently have any Time Series data associated with it, the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>Instream flows have time series data associated with them depending on their complexity. For instance, if the instream flow varies over time, then the user should create corresponding time series data. However, if the instream flow is constant, a single value within the **High*</em> parameter field is sufficient.*</p>
+</div>
+<p>The <strong>High</strong> field provides a space to specify a target or goal for the instream flow.  A value provided here will last for all minor time steps in a model run unless there is Time Series Data to override the value.  <strong>Do not leave the high value to Infinite!</strong>  The High field for this network element represents the “minimum” amount of water that the instream flow should try to preserve in the river.  Excess flow capabilities of the river at this location should be represented by a standard model link (with zero priority) set in parallel with the instream flow object. Thus, the sum of the two parallel arcs (1 instream flow and 1 link) will represent the total flow through the river.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>Do not set the High value to Infinite, or else the model will try and route all available water through the instream flow object.</em></p>
+</div>
+<p>The <strong>Low</strong> field provides a space to specify a constant minimum flow for the instream flow. A value provided here will last for all minor time steps in a model run unless there is a Instream Flow Time Series Data Sheet in the current scenario with the Low parameter specified there. Since the instream flow is already trying to attain the value set as a <strong>High</strong>, it is unnecessary to change the Low from zero.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><em>An instream flow Low should always be set to zero (0). An infeasible solution will likely occur otherwise.</em></p>
+</div>
+<p>The <strong>Priority</strong> field provides a space to enter the priority assigned to that instream flow.</p>
+<p><strong>Best Practices:</strong> The instream flow should be setup with a single link above it and a single link downstream of it. In the middle, there are two parallel arcs, an instream flow and a link. This helps to avoid confusion regarding the link priorities. The total flow of a river reach (sum of instream flow and its parallel link) is easily ascertained from next downstream link. See image below.</p>
+<img alt="_images/instream-best-practices-temp.png" src="_images/instream-best-practices-temp.png" />
+</div>
+<div class="section" id="advanced-instream-flow-setup">
+<h3>Advanced Instream Flow Setup<a class="headerlink" href="#advanced-instream-flow-setup" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
+<li>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</li>
+<li><strong>Output To Worksheet</strong> provides a list of check boxes for Instream Flow parameters that can be written to the output worksheet when the model is run.</li>
 </ul>
 </div>
 </div>

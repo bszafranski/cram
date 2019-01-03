@@ -222,7 +222,7 @@ The **High** field provides a space to specify a constant maximum capacity for t
 
 The **Low** field provides a space to specify a constant minimum flow for the demand. A value provided here will last for all minor time steps in a model run unless there is a Demand Time Series Data Sheet in the current scenario with the Low parameter specified there. 
 
-.. note:: *If the user sets the Low value higher than the available water in a time step an infeasible solution will occur. Non-zero low values should be used sparingly*
+.. note:: *If the user sets the Low value higher than the available water in a time step an infeasible solution will occur. Non-zero low values should be used sparingly.*
 
 The **Priority** field provides a space to enter the priority assigned to that demand.
 
@@ -264,7 +264,7 @@ The **Reservoir Name** is a user-defined ASCII string that provides a familiar n
 
 The **From Node** identifies the node at the upstream or distributing side of the reservoir.
 
-The **To Node** identifies the node at the downstream end of the inflow.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.
+The **To Node** identifies the node at the downstream end of the reservoir.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.
 
 **Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the reservoir being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.
 
@@ -296,6 +296,59 @@ Advanced Reservoir Setup
 - **Output To Worksheet** provides a list of check boxes for Reservoir parameters that can be written to the output worksheet when the model is run.
 
 
+
+Adding an Instream Flow
+^^^^^^^^^^^^^^^^^^^^^^^
+
+A CRAM Instream Flow is a specialized object used in model to simulate water rights that are used to keep water in the stream and make them available below the instream flow for diversion without increasing the priority of the demands below the instream flow.  
+
+To add an instream flow to the network, click on the "Create an Instream Flow" button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Reservoir from the dialog box that appears.
+
+.. image:: /images/add-instream-flow.png
+
+.. image:: /images/add-instream-flow2.png
+
+Instream Flow Basics
+~~~~~~~~~~~~~~~~~~~~
+
+The basic features necessary to add instream flow objects are discussed in this section. Here we step through the fields on the **Edit Instream Flow** dialog box.
+
+.. image:: /images/edit-instream-flow.png
+
+The **ISF Number** is automatically assigned by CRAM. Instream flow numbers cannot be reused in the network.
+
+The **ISF Name** is a user-defined ASCII string that provides a familiar name to describe the instream flow. *ISFs are ALWAYS named by users within the model.* We recommend that the name be unique within the first 32 characters, but this not required. The name should normally be less than 256 characters in length.
+
+The **From Node** identifies the node at the upstream or distributing side of the instream flow.
+
+The **To Node** identifies the node at the downstream end of the instream flow.  This node is where the flow from the instream flow re-enters the network and mixes with all other sources at the node specified in this field.
+
+**Create Time Series Sheet/Go to Time Series Data** button. This button has one of two labels on it. If the instream flow being edited does not currently have any Time Series data associated with it, the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.
+
+.. note:: *Instream flows have time series data associated with them depending on their complexity. For instance, if the instream flow varies over time, then the user should create corresponding time series data. However, if the instream flow is constant, a single value within the **High** parameter field is sufficient.*
+
+The **High** field provides a space to specify a target or goal for the instream flow.  A value provided here will last for all minor time steps in a model run unless there is Time Series Data to override the value.  **Do not leave the high value to Infinite!**  The High field for this network element represents the "minimum" amount of water that the instream flow should try to preserve in the river.  Excess flow capabilities of the river at this location should be represented by a standard model link (with zero priority) set in parallel with the instream flow object. Thus, the sum of the two parallel arcs (1 instream flow and 1 link) will represent the total flow through the river.
+
+.. note:: *Do not set the High value to Infinite, or else the model will try and route all available water through the instream flow object.* 
+
+The **Low** field provides a space to specify a constant minimum flow for the instream flow. A value provided here will last for all minor time steps in a model run unless there is a Instream Flow Time Series Data Sheet in the current scenario with the Low parameter specified there. Since the instream flow is already trying to attain the value set as a **High**, it is unnecessary to change the Low from zero. 
+
+.. note:: *An instream flow Low should always be set to zero (0). An infeasible solution will likely occur otherwise.*
+
+The **Priority** field provides a space to enter the priority assigned to that instream flow.
+
+**Best Practices:** The instream flow should be setup with a single link above it and a single link downstream of it. In the middle, there are two parallel arcs, an instream flow and a link. This helps to avoid confusion regarding the link priorities. The total flow of a river reach (sum of instream flow and its parallel link) is easily ascertained from next downstream link. See image below.
+
+.. image:: /images/instream-best-practices-temp.png
+ 
+Advanced Instream Flow Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- The **Display Group** is set to "1" by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see :ref:`details-label` documentation. 
+
+- The **Comment** box allows the user to add any notes about the node that might be important to the design.
+
+- **Output To Worksheet** provides a list of check boxes for Instream Flow parameters that can be written to the output worksheet when the model is run.
 
 
 Moving Objects in CRAM

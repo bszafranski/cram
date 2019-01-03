@@ -102,7 +102,9 @@ html_favicon = "images/cram-icon-32.png"
 #html_logo = "images/cram-header-small.png"
 #html_logo = "images/cram-white-logo.png"
 #html_logo = "images/cram-circle-logo.png"
-html_logo = "images/cram-sidebar-final_v2.png"
+#html_logo = "images/cram-sidebar-final_v2.png"
+#html_logo = "images/cram-sidebar-Lynker.png"
+html_logo = "images/cram-sidebar-Lynker-flip.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

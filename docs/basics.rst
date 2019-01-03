@@ -77,7 +77,7 @@ Most of the CRAM model data (time series data, model parameters, network connect
 +=================================+=============+=====================================================================+
 | User Controls                   | Basic       | Contains settings for the model, most recent run.                   |
 +---------------------------------+-------------+---------------------------------------------------------------------+
-| Network Schematic               | Basic       | Contains the Network diagram                                        |
+| Network Schematic               | Basic       | Contains the Network diagram.                                       |
 +---------------------------------+-------------+---------------------------------------------------------------------+
 | Worksheet Output Template       | Basic       | Contains list of elements to export to output file.                 |
 +---------------------------------+-------------+---------------------------------------------------------------------+
