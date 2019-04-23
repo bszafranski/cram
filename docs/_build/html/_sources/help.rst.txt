@@ -1,7 +1,8 @@
 Help
 ====
 
-.. image:: /images/cram-header-40T.jpg
+.. image:: /images/cram-header-final.jpg
+   :alt: CRAM water model banner
 
 **Have more questions about CRAM?**
 
