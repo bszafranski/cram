@@ -30,5 +30,6 @@ Guide
    create-network
    details
    interactive
+   model-version
    help
 
