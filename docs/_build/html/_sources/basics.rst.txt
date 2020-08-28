@@ -17,19 +17,21 @@ CRAM uses 8 types of objects to represent real-world systems.
 
 **Data Objects** are an additional type of model object that can be added to the network. They are used to track model output and do not affect the configuration or solution of the model. That is to say, Data Objects don't connect with a To Node and From Node within the network.
 
+.. _NetworkSchematic-label:
+
 The Network Schematic
 ^^^^^^^^^^^^^^^^^^^^^
 
 The network schematic shows the physical connections in the model network. It is the user interface for CRAM, displaying a graphical representation of the links and nodes that represent the system. This includes inflows, reservoirs, demands, return flows, and groundwater use. **Click the image below for a full resolution network schematic.**
 
-.. image:: /images/network-schematic.png
+.. image:: /images/Basics/network-schematic.png
    :scale: 70%
    :alt: CRAM Demo Model Network Schematic
    :align: center
    
 The network schematic is an interactive interface for building the model and editing model parameters. It allows the user to access most locations in the model. For instance, clicking on Link 15 opens a pop-up that lists the link name, how it's connected in the model (From Node, To Node), and the types of output it should have. **This is shown in the image provided below.**
 
-.. image:: /images/interactive-interface-v2.png
+.. image:: /images/Basics/interactive-interface-v2.png
 
 
 The User Input Sheet
@@ -39,7 +41,7 @@ The user input sheet contains the settings for a model. This allows the user to 
 
 The user sheet can set the level of detail in the model, with the "Basic User" hiding most model sheets as discussed in the :ref:`worksheet-label` section. The "Advanced User" reveals the timeseries data sheets within the model and "Developer" mode unhides all of the sheets in a model workbook.
 
-.. image:: /images/level-of-detail.png
+.. image:: /images/Basics/level-of-detail.png
 
 Time Steps
 ^^^^^^^^^^
@@ -55,7 +57,7 @@ Operation Steps
 
 Operations steps are used to build complex system operations that are often involved with water rights, reservoirs and exchanges. More information on the use of operation steps can be found in the :ref:`details-label` documentation.
 
-.. image:: /images/ops-step-manager.png
+.. image:: /images/Basics/ops-step-manager.png
    :alt: two types of nodes in network
 
 User Code

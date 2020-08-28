@@ -28,9 +28,10 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Model Details" href="details.html" />
+    <link rel="next" title="Running a Model" href="running-cram.html" />
     <link rel="prev" title="Model Basics" href="basics.html" /> 
 
   
@@ -124,6 +125,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#moving-objects-in-cram">Moving Objects in CRAM</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="running-cram.html">Running a Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Model Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="details.html">Model Details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive CRAM Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model-version.html">Model Version</a></li>
@@ -193,22 +196,22 @@
            <div itemprop="articleBody">
             
   <div class="section" id="creating-a-network">
-<h1>Creating a Network<a class="headerlink" href="#creating-a-network" title="Permalink to this headline">¶</a></h1>
+<span id="createnetwork-label"></span><h1>Creating a Network<a class="headerlink" href="#creating-a-network" title="Permalink to this headline">¶</a></h1>
 <p>In its simplest form, a CRAM network consists of a single node with one inflow and one demand.  The inflow specifies the amount of water entering the system and the demand specifies the amount of water leaving the system.  Because CRAM enforces mass-balance, all flow entering through the Inflow must exit through the Demand. If the demand has been constrained to a capacity less than the Inflow flow found in one of the minor time steps the model will determine that an infeasible solution has occurred.</p>
 <img alt="_images/basic-network.png" class="align-center" src="_images/basic-network.png" />
 <p>Most CRAM models will consist of a few hundred nodes connected by a larger number of links allowing water (flow) to be delivered to many different competing demands from a variety of sources. CRAM optimizes the system to determine the most efficient use of the water given the delivery constraints (both physical and administrative). After a solution has been attained, the user may want to experiment with additional stresses, constraints, or options on the simulation network. This is a core component of CRAM’s scenario analysis.</p>
 <a class="reference internal image-reference" href="_images/complex-network.png"><img alt="_images/complex-network.png" class="align-center" src="_images/complex-network.png" style="width: 734.4px; height: 442.2px;" /></a>
 <p>The modeling tool supports reservoirs, instream flows, decrees, and return flows which can greatly increase the complexity of models. CRAM’s operation steps allow modeling of the most complex exchanges and water rights. Please read the additional information about these features to be aware of “gotchas” that you may encounter when using the CRAM modeling tool.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The blue note boxes provide tips that may be helpful in avoiding modeling errors such as creating infeasible solutions.</p>
+<p class="admonition-title">Note</p>
+<p>The blue note boxes provide tips that may be helpful in avoiding modeling errors such as creating infeasible solutions.</p>
 </div>
 <div class="section" id="adding-a-node">
 <h2>Adding a Node<a class="headerlink" href="#adding-a-node" title="Permalink to this headline">¶</a></h2>
 <p>Nodes are the basic building block of a CRAM network. Nodes are used to connect other network arc types (e.g., links, inflows, demands) and help determine the potential paths for flow in the model. There are two kinds of nodes in a model.</p>
 <ol class="arabic simple">
-<li>General nodes are nodes that have a single instance and physical location in the model. These are the types of nodes added to the model by the user. General nodes can be identified by a circle with a number inside of it.</li>
-<li>Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see The Network Schematic) it is represented in multiple locations. However, they all represent the same node in the model. For instance, an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic can be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping. These are automatically added to a model network as needed by CRAM.</li>
+<li><p>General nodes are nodes that have a single instance and physical location in the model. These are the types of nodes added to the model by the user. General nodes can be identified by a circle with a number inside of it.</p></li>
+<li><p>Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see <a class="reference internal" href="basics.html#networkschematic-label"><span class="std std-ref">The Network Schematic</span></a>) it is represented in multiple locations. However, they all represent the same node in the model. For instance, an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic can be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping. These are automatically added to a model network as needed by CRAM.</p></li>
 </ol>
 <p>All nodes in the network maintain mass balance during every step of the solution.</p>
 <a class="reference internal image-reference" href="_images/node-types.png"><img alt="two types of nodes in network" class="align-center" src="_images/node-types.png" style="width: 367.5px; height: 188.25px;" /></a>
@@ -226,7 +229,7 @@
 <div class="section" id="advanced-node-setup">
 <h3>Advanced Node Setup<a class="headerlink" href="#advanced-node-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The Display Group is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
+<li><p>The Display Group is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p></li>
 </ul>
 </div>
 </div>
@@ -235,28 +238,28 @@
 <p>A link connects two nodes. It has four user configurable parameters which help determine the amount of flow passing from the “From Node” to the “To Node” in the model. The four parameters are:</p>
 <a class="reference internal image-reference" href="_images/link-image.png"><img alt="image of network link" class="align-center" src="_images/link-image.png" style="width: 411.75px; height: 184.5px;" /></a>
 <ol class="arabic simple">
-<li><strong>High:</strong> The High parameter is the maximum amount of flow that can pass through the link in a single solution time step. Typically, the default value of “Infinite” is used. However, integer values are commonly used to represent pipeline capacities.</li>
+<li><p><strong>High:</strong> The High parameter is the maximum amount of flow that can pass through the link in a single solution time step. Typically, the default value of “Infinite” is used. However, integer values are commonly used to represent pipeline capacities.</p></li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><strong>Advanced Note:</strong> <em>If the total amount of water at the From Node is greater than the sum of all High parameters on all arcs leaving that node, an infeasible solution will occur. Using the default value of “infinite” avoids this problem.</em></p>
+<p class="admonition-title">Note</p>
+<p><strong>Advanced Note:</strong> <em>If the total amount of water at the From Node is greater than the sum of all High parameters on all arcs leaving that node, an infeasible solution will occur. Using the default value of “infinite” avoids this problem.</em></p>
 </div>
 <ol class="arabic simple" start="2">
-<li><strong>Low:</strong>  The Low parameter is the minimum amount of flow that MUST pass through the link in a single solution time step. Typically, the default value of “0” is used.</li>
+<li><p><strong>Low:</strong>  The Low parameter is the minimum amount of flow that MUST pass through the link in a single solution time step. Typically, the default value of “0” is used.</p></li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>If the Low is set higher than the High parameter, an infeasible solution will occur.  If the From Node for this link does not have as much flow into it as the sum of all the Low parameters leaving that node, an infeasible solution will occur.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>If the Low is set higher than the High parameter, an infeasible solution will occur.  If the From Node for this link does not have as much flow into it as the sum of all the Low parameters leaving that node, an infeasible solution will occur.</em></p>
 </div>
 <ol class="arabic simple" start="3">
-<li><strong>Priority:</strong>  The Priority parameter helps the network to determine the relative priority of sending water through a link.  Priorities (or ranks) in the network model are additive.</li>
+<li><p><strong>Priority:</strong>  The Priority parameter helps the network to determine the relative priority of sending water through a link.  Priorities (or ranks) in the network model are additive.</p></li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>As a model becomes more complex, the additive values of different flow paths can become more complicated.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>As a model becomes more complex, the additive values of different flow paths can become more complicated.</em></p>
 </div>
 <ol class="arabic simple" start="4">
-<li><strong>Flow:</strong>  The flow parameter is the optimized result of a model solution. The user is unable to change this value - it is model output only.</li>
+<li><p><strong>Flow:</strong>  The flow parameter is the optimized result of a model solution. The user is unable to change this value - it is model output only.</p></li>
 </ol>
 <p>To add a link to the network, click on the Create Link button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Link from the drop-down box.</p>
 <img alt="_images/add-link.png" src="_images/add-link.png" />
@@ -271,14 +274,14 @@
 <p>The <strong>To Node</strong> identifies the node at the downstream end of the link. The To Node is where the flow from this link enters and mixes with all other sources (links).</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the link being edited does not currently have any time series data associated with it, the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>Most links DO NOT have time series data associated with them. Links used to build advanced reservoirs are an exception to this.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>Most links DO NOT have time series data associated with them. Links used to build advanced reservoirs are an exception to this.</em></p>
 </div>
 <p>The <strong>High</strong> field provides a space to specify a constant maximum capacity for the link. A value provided here will last for all minor time steps in a model run unless there is a Link Time Series Data sheet to override the value. A value of “Infinite” here indicates that the link does not have a capacity limit.</p>
 <p>The <strong>Low</strong> field provides a space to specify a constant minimum flow for the link. A value provided here will last for all minor time steps in a model run unless there is a Link Time Series Data Sheet in the current scenario with the Low parameter specified there.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>If a negative value is used in this field, water will flow “backwards” through the link generating a negative priority for each unit of flow transferred. This should be used with caution, and it is recommended the priority value is set to zero.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>If a negative value is used in this field, water will flow “backwards” through the link generating a negative priority for each unit of flow transferred. This should be used with caution, and it is recommended the priority value is set to zero.</em></p>
 </div>
 <p>The <strong>Priority</strong> field provides a space to enter the priority to be assigned to that link.</p>
 <p>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</p>
@@ -286,15 +289,15 @@
 <div class="section" id="advanced-link-setup">
 <h3>Advanced Link Setup<a class="headerlink" href="#advanced-link-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The Display Group is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
-<li>The Step Sequence allows you to enter the state of the element (Open, Closed, Frozen) for each operation step. More information can be found in <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
+<li><p>The Display Group is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p></li>
+<li><p>The Step Sequence allows you to enter the state of the element (Open, Closed, Frozen) for each operation step. More information can be found in <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>The default value is “O” for open. Other values should only be used by advanced CRAM users.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>The default value is “O” for open. Other values should only be used by advanced CRAM users.</em></p>
 </div>
 <ul class="simple">
-<li>Output To Worksheet provides a list of check boxes for Link parameters that can be written to the output worksheet when the model is run.</li>
+<li><p>Output To Worksheet provides a list of check boxes for Link parameters that can be written to the output worksheet when the model is run.</p></li>
 </ul>
 </div>
 </div>
@@ -302,14 +305,14 @@
 <h2>Adding an Inflow<a class="headerlink" href="#adding-an-inflow" title="Permalink to this headline">¶</a></h2>
 <p>Inflows provide the source of water for an CRAM network. Once in the model the water (flow) is divided up among the demands based on the total priority of routing, from the inflow to the bottom of the network. Behind the scenes, the model “circulates” the water using the mass balance nodes.</p>
 <ul class="simple">
-<li>An inflow can be connected TO any node (except a mass balance node)</li>
-<li>An inflow will always be connected FROM the mass balance node</li>
+<li><p>An inflow can be connected TO any node (except a mass balance node)</p></li>
+<li><p>An inflow will always be connected FROM the mass balance node</p></li>
 </ul>
 <a class="reference internal image-reference" href="_images/inflow-image.png"><img alt="inflow connected to a node" class="align-center" src="_images/inflow-image.png" style="width: 317.85px; height: 255.45000000000002px;" /></a>
 <p>Inflows only have one parameter, Flow.  For Inflows, the Flow defines both the High and the Low on the arc. If the Flow from an inflow is not able to find a route through the network and back to the mass balance node an infeasible solution will occur.</p>
 <p>To add an inflow to the network, click on the Create Inflow button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Inflow from the dialog box that appears.</p>
 <img alt="_images/add-inflow.png" src="_images/add-inflow.png" />
-<img alt="_images/add-node2.png" src="_images/add-node2.png" />
+<img alt="_images/add-inflow2.png" src="_images/add-inflow2.png" />
 <div class="section" id="inflow-basics">
 <h3>Inflow Basics<a class="headerlink" href="#inflow-basics" title="Permalink to this headline">¶</a></h3>
 <p>The basic features necessary to add model inflows are discussed in this section. Here we step through the fields on the <strong>Edit Inflow</strong> dialog box.</p>
@@ -319,23 +322,23 @@
 <p>The <strong>To Node</strong> identifies the node at the receiving end of the inflow.  The To Node is where the flow from the inflow enters and mixes with all other sources (links or inflows).</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the inflow being edited does not currently have any time series data associated with it the button will read Create Time Series Sheet.  Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>Inflows should always have time series data associated with them. Failure to create a Time Series Sheet will result in a zero inflow.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>Inflows should always have time series data associated with them. Failure to create a Time Series Sheet will result in a zero inflow.</em></p>
 </div>
 <p>The Comment box allows the user to add any notes about the node that might be important to the design.</p>
 </div>
 <div class="section" id="advanced-inflow-setup">
 <h3>Advanced Inflow Setup<a class="headerlink" href="#advanced-inflow-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The Step Sequence specifies the operation steps to be used for this Inflow. More information can be found in <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
+<li><p>The Step Sequence specifies the operation steps to be used for this Inflow. More information can be found in <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>The default value is “O” for open. Other values should only be used by advanced CRAM users.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>The default value is “O” for open. Other values should only be used by advanced CRAM users.</em></p>
 </div>
 <ul class="simple">
-<li>The Display Group is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
-<li>Output To Worksheet provides a list of check boxes for the Inflow parameter that can be written to the output worksheet when the model is run.</li>
+<li><p>The Display Group is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (nodes, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p></li>
+<li><p>Output To Worksheet provides a list of check boxes for the Inflow parameter that can be written to the output worksheet when the model is run.</p></li>
 </ul>
 </div>
 </div>
@@ -344,8 +347,8 @@
 <p>Demands are used to route water to specific users in the CRAM network (e.g., cities, farmers, ditches). The water that passes through a demand arc is not available for use anywhere else in the network during the same time step.  Demands can be thought of as the final destination of water within the network.</p>
 <p>The capacity of a demand is determined by the High parameter while the minimum flow that must pass through a demand arc is set by the Low parameter.</p>
 <ul class="simple">
-<li>A demand can be connected FROM any node (except a Mass-Balance node)</li>
-<li>A demand is always connected TO a mass balance node</li>
+<li><p>A demand can be connected FROM any node (except a Mass-Balance node)</p></li>
+<li><p>A demand is always connected TO a mass balance node</p></li>
 </ul>
 <a class="reference internal image-reference" href="_images/demand-image.png"><img alt="demand connected from a node" class="align-center" src="_images/demand-image.png" style="width: 317.85px; height: 256.1px;" /></a>
 <p>To add a demand to the network, click on the Create Demand button on the toolbar (shown below) or click on the menu ExcelCRAM-&gt;Network-&gt;Add Object… menu item and select Demand from the dialog box that appears.</p>
@@ -360,30 +363,30 @@
 <p>The <strong>From Node</strong> identifies the node at the upstream or distributing side of the demand.</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the demand being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>Demands should always have time series data associated with them. Failure to create a Time Series Sheet will result in the demand having a default value of infinite.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>Demands should always have time series data associated with them. Failure to create a Time Series Sheet will result in the demand having a default value of infinite.</em></p>
 </div>
 <p>The <strong>High</strong> field provides a space to specify a constant maximum capacity for the demand. A value provided here will last for all minor time steps in a model run unless there is Demand Time Series Data Sheet to override the value. A value of “Infinite” here indicates that the demand does not have a capacity limit. This can be useful for creating a demand that will take all available flow in a network.</p>
 <p>The <strong>Low</strong> field provides a space to specify a constant minimum flow for the demand. A value provided here will last for all minor time steps in a model run unless there is a Demand Time Series Data Sheet in the current scenario with the Low parameter specified there.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>If the user sets the Low value higher than the available water in a time step an infeasible solution will occur. Non-zero low values should be used sparingly.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>If the user sets the Low value higher than the available water in a time step an infeasible solution will occur. Non-zero low values should be used sparingly.</em></p>
 </div>
 <p>The <strong>Priority</strong> field provides a space to enter the priority assigned to that demand.</p>
 </div>
 <div class="section" id="advanced-demand-setup">
 <h3>Advanced Demand Setup<a class="headerlink" href="#advanced-demand-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
-<li>The <strong>Step Sequence</strong> allows the user to enter the state of the element (Open, Closed, Frozen) for each operation step.</li>
+<li><p>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p></li>
+<li><p>The <strong>Step Sequence</strong> allows the user to enter the state of the element (Open, Closed, Frozen) for each operation step.</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>The default value is “O” for open. Other values should only be used by advanced CRAM users.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>The default value is “O” for open. Other values should only be used by advanced CRAM users.</em></p>
 </div>
 <ul class="simple">
-<li>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</li>
-<li><strong>Output To Worksheet</strong> provides a list of check boxes for Demand parameters that can be written to the output worksheet when the model is run.</li>
+<li><p>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</p></li>
+<li><p><strong>Output To Worksheet</strong> provides a list of check boxes for Demand parameters that can be written to the output worksheet when the model is run.</p></li>
 </ul>
 </div>
 </div>
@@ -403,30 +406,30 @@
 <p>The <strong>To Node</strong> identifies the node at the downstream end of the reservoir.  This node is where the flow stored by the reservoir in the previous time step (Minor Time Step) is released back to the network. A link from this node to the From Node will allow the reservoir to retain storage from one time step (Minor Time Step) to another.</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the reservoir being edited does not currently have any Time Series data associated with it the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>Reservoirs usually do not have time series data associated with them. However, links that are a part of the reservoir, such as those used to represent target storage, usually do have time series data.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>Reservoirs usually do not have time series data associated with them. However, links that are a part of the reservoir, such as those used to represent target storage, usually do have time series data.</em></p>
 </div>
 <p>The <strong>Dead Storage</strong> is currently inactive.</p>
 <p>The <strong>Active Storage</strong> is currently inactive.</p>
 <p>The <strong>Total Capacity</strong> provides a place to record the total storage capacity of the reservoir. This can be either active storage or total storage depending on how you have decided to model the reservoir.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>The Total Capacity must be less than or equal to the maximum value added to the reservoir elevation-area-volume curve (data).</em></p>
+<p class="admonition-title">Note</p>
+<p><em>The Total Capacity must be less than or equal to the maximum value added to the reservoir elevation-area-volume curve (data).</em></p>
 </div>
 <p>The <strong>Initial Contents</strong> provides a place to record the initial storage contents of the reservoir. This can be a variety of values (including zero), depending on how the reservoir is modeled.</p>
 <p>The <strong>Volume-Area Curve</strong> contains pairs of numbers that describe the volume-area relationship for the reservoir.  This table of numbers is used to calculate average surface area over a time step (minor time step) to calculate evaporation. The numbers for this field are entered in increasing order from the lowest volume to the reservoir’s total capacity with the corresponding area following the colon. (i.e.  0:0, 100:40, 200:60 would represent a reservoir that had covered 40 acres when it contained 100 acre-feet (AF) and covered 60 acres when it contained 200 AF). Values between the points are linearly interpolated to determine volume and surface area. Using the previous example, 150 AF of water would correspond to 50 acres in surface area.</p>
 <p>The <strong>Seasonal Evaporation Rate Series</strong> stores the evaporation rates as a series of comma delimited numbers. There should be one value for each minor time step in your model.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>There are 2 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step). 2. Annual repeating evaporation values (by Minor Time Step).</em></p>
+<p class="admonition-title">Note</p>
+<p><em>There are 2 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step). 2. Annual repeating evaporation values (by Minor Time Step).</em></p>
 </div>
 </div>
 <div class="section" id="advanced-reservoir-setup">
 <h3>Advanced Reservoir Setup<a class="headerlink" href="#advanced-reservoir-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
-<li>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</li>
-<li><strong>Output To Worksheet</strong> provides a list of check boxes for Reservoir parameters that can be written to the output worksheet when the model is run.</li>
+<li><p>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p></li>
+<li><p>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</p></li>
+<li><p><strong>Output To Worksheet</strong> provides a list of check boxes for Reservoir parameters that can be written to the output worksheet when the model is run.</p></li>
 </ul>
 </div>
 </div>
@@ -446,18 +449,18 @@
 <p>The <strong>To Node</strong> identifies the node at the downstream end of the instream flow.  This node is where the flow from the instream flow re-enters the network and mixes with all other sources at the node specified in this field.</p>
 <p><strong>Create Time Series Sheet/Go to Time Series Data</strong> button. This button has one of two labels on it. If the instream flow being edited does not currently have any Time Series data associated with it, the button will read Create Time Series Sheet. Clicking on the button will create a formatted worksheet in the current scenario to hold time series data for the link. The user will need to populate the sheet with the appropriate data.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>Instream flows have time series data associated with them depending on their complexity. For instance, if the instream flow varies over time, then the user should create corresponding time series data. However, if the instream flow is constant, a single value within the **High*</em> parameter field is sufficient.*</p>
+<p class="admonition-title">Note</p>
+<p><em>Instream flows have time series data associated with them depending on their complexity. For instance, if the instream flow varies over time, then the user should create corresponding time series data. However, if the instream flow is constant, a single value within the **High*</em> parameter field is sufficient.*</p>
 </div>
 <p>The <strong>High</strong> field provides a space to specify a target or goal for the instream flow.  A value provided here will last for all minor time steps in a model run unless there is Time Series Data to override the value.  <strong>Do not leave the high value to Infinite!</strong>  The High field for this network element represents the “minimum” amount of water that the instream flow should try to preserve in the river.  Excess flow capabilities of the river at this location should be represented by a standard model link (with zero priority) set in parallel with the instream flow object. Thus, the sum of the two parallel arcs (1 instream flow and 1 link) will represent the total flow through the river.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>Do not set the High value to Infinite, or else the model will try and route all available water through the instream flow object.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>Do not set the High value to Infinite, or else the model will try and route all available water through the instream flow object.</em></p>
 </div>
 <p>The <strong>Low</strong> field provides a space to specify a constant minimum flow for the instream flow. A value provided here will last for all minor time steps in a model run unless there is a Instream Flow Time Series Data Sheet in the current scenario with the Low parameter specified there. Since the instream flow is already trying to attain the value set as a <strong>High</strong>, it is unnecessary to change the Low from zero.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><em>An instream flow Low should always be set to zero (0). An infeasible solution will likely occur otherwise.</em></p>
+<p class="admonition-title">Note</p>
+<p><em>An instream flow Low should always be set to zero (0). An infeasible solution will likely occur otherwise.</em></p>
 </div>
 <p>The <strong>Priority</strong> field provides a space to enter the priority assigned to that instream flow.</p>
 <p><strong>Best Practices:</strong> The instream flow should be setup with a single link above it and a single link downstream of it. In the middle, there are two parallel arcs, an instream flow and a link. This helps to avoid confusion regarding the link priorities. The total flow of a river reach (sum of instream flow and its parallel link) is easily ascertained from next downstream link. See image below.</p>
@@ -466,9 +469,9 @@
 <div class="section" id="advanced-instream-flow-setup">
 <h3>Advanced Instream Flow Setup<a class="headerlink" href="#advanced-instream-flow-setup" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</li>
-<li>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</li>
-<li><strong>Output To Worksheet</strong> provides a list of check boxes for Instream Flow parameters that can be written to the output worksheet when the model is run.</li>
+<li><p>The <strong>Display Group</strong> is set to “1” by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see <a class="reference internal" href="details.html#details-label"><span class="std std-ref">Model Details</span></a> documentation.</p></li>
+<li><p>The <strong>Comment</strong> box allows the user to add any notes about the node that might be important to the design.</p></li>
+<li><p><strong>Output To Worksheet</strong> provides a list of check boxes for Instream Flow parameters that can be written to the output worksheet when the model is run.</p></li>
 </ul>
 </div>
 </div>
@@ -487,7 +490,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="details.html" class="btn btn-neutral float-right" title="Model Details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="running-cram.html" class="btn btn-neutral float-right" title="Running a Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="basics.html" class="btn btn-neutral" title="Model Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -520,20 +523,11 @@
 
     
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'./',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
 
   

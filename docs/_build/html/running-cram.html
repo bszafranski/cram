@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running a Model &mdash; CRAM  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/cram-icon-32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Model Output" href="output.html" />
+    <link rel="prev" title="Creating a Network" href="create-network.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CRAM
+          
+
+          
+            
+            <img src="_static/cram-sidebar-Lynker-flip.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="what-is-cram.html">What Is CRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Model Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-network.html">Creating a Network</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running a Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#loading-a-model">Loading a Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cram-model-engine">CRAM Model Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cram-model-file">CRAM Model File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-a-model-run">Starting a Model Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#viewing-model-output">Viewing Model Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Model Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive CRAM Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-version.html">Model Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CRAM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Running a Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/running-cram.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-a-model">
+<span id="runningcram-label"></span><h1>Running a Model<a class="headerlink" href="#running-a-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="loading-a-model">
+<h2>Loading a Model<a class="headerlink" href="#loading-a-model" title="Permalink to this headline">¶</a></h2>
+<p>CRAM consists of two parts: Lynker’s CRAM model engine (.XLAM) and the user-developed model network diagram, data, and scenarios (.xcwm).</p>
+<div class="section" id="cram-model-engine">
+<h3>CRAM Model Engine<a class="headerlink" href="#cram-model-engine" title="Permalink to this headline">¶</a></h3>
+<p>Before the model can be run, Lynker’s CRAM model engine needs to be opened and the model file loaded. The CRAM model engine is opened by starting Microsoft Excel and loading the file XLCRAM2007.XLAM, or by simply double clicking the XLCRAM2007.XLAM file. The model engine can be found in the installation directory (The default from the setup program is C:Program FilesLynker).</p>
+<p>A pop-up dialog box may appear when this CRAM engine is loaded into Excel, warning that the workbook contains macros and that some macros may contain viruses that could be harmful to the computer. Click on the “Enable Macros” button to allow the CRAM engine to install the menu interface to the Excel ribbon.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note on Excel Macro Settings: To check your Macro settings in Excel 365, do the following. Click the “File” menu, then click “Options” in the lower left corner. From the Excel Options popup box, first click “Trust Center” in the lower left, then click the “Trust Center Settings” button. A new Trust Center popup box will appear. Navigate to the “Macro Settings” on the left panel, and click “Disable all macros with notification”.</p>
+</div>
+<img alt="_images/trust-macro-combo2.png" src="_images/trust-macro-combo2.png" />
+</div>
+<div class="section" id="cram-model-file">
+<h3>CRAM Model File<a class="headerlink" href="#cram-model-file" title="Permalink to this headline">¶</a></h3>
+<p>If the user has not already developed a CRAM model, a network can be built using the tools and menus in Excel CRAM (see <a class="reference internal" href="create-network.html#createnetwork-label"><span class="std std-ref">Creating a Network</span></a>). If a model has already been developed, the model network can be loaded and the data and scenarios can be found in the *.xcwm file. Load the model file by finding the Add-in section in the Excel ribbon, then click on <em>Excel CRAM-&gt;Workbook-&gt;Open Existing Workbook</em> and select the appropriate .xcwm file. If the user doesn’t see this file listed in the dialog box displayed, the user will need to change the current directory by navigating to the folder containing the model (*.xcwm).</p>
+<img alt="_images/load-model.png" src="_images/load-model.png" />
+</div>
+</div>
+<div class="section" id="starting-a-model-run">
+<h2>Starting a Model Run<a class="headerlink" href="#starting-a-model-run" title="Permalink to this headline">¶</a></h2>
+<p>To run a CRAM model click the Excel CRAM menu, and then the “Start Simulation” option. Alternatively, click the triangle icon pointing to the right  .</p>
+<img alt="_images/start-simulation2.png" class="align-center" src="_images/start-simulation2.png" />
+<p>This will open the Run Simulation dialog box that controls the model run. The first two edit fields identify the starting and ending years of the model run. These fields should have numbers that fall within the range of values in the Year (Major Time Step) column of your time series data sheets.</p>
+<img alt="_images/simulation-options.png" class="align-center" src="_images/simulation-options.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the start year is before the first year of time series data, the model will produce the Debugging Tool indicating that an error has occurred. Similarly, if the end year is after the last year of time series data, the model will indicate an error has occurred.</p>
+</div>
+<a class="reference internal image-reference" href="_images/debugging-tool.png"><img alt="_images/debugging-tool.png" class="align-center" src="_images/debugging-tool.png" style="width: 313.5px; height: 264.0px;" /></a>
+<p>When CRAM begins a simulation, users will see model updates in the lower left corner of Excel. The updates quickly change from ‘initializing network arrays’ to ‘reading time series’ and then display an update of the year-season that CRAM is executing. For instance, in the image below, CRAM is running month 6 of year 1955.</p>
+<img alt="_images/simulation-update.png" class="align-center" src="_images/simulation-update.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When running CRAM, it is common for Excel to display <em>(not responding)</em>, which typically indicates that Excel has frozen. This is normal behavior in newer versions of Excel running CRAM. Allow the model to finish the simulation and CRAM will run and execute properly.</p>
+</div>
+<p>When the simulation has completed, a dialog box will appear showing the simulation runtime.</p>
+<a class="reference internal image-reference" href="_images/simulation-complete.png"><img alt="_images/simulation-complete.png" class="align-center" src="_images/simulation-complete.png" style="width: 219.0px; height: 162.75px;" /></a>
+</div>
+<div class="section" id="viewing-model-output">
+<h2>Viewing Model Output<a class="headerlink" href="#viewing-model-output" title="Permalink to this headline">¶</a></h2>
+<p>Once a model run has finished, time series data will be stored in the <strong>Output Sheet</strong>, according to inflows, demands, links, and other network elements specified by the user. For more information on controlling the model output, and the types of model output that are available, see <a class="reference internal" href="output.html#output-label"><span class="std std-ref">Model Output</span></a>. An example of output from CRAM is shown below.</p>
+<img alt="_images/example-output.png" class="align-center" src="_images/example-output.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="output.html" class="btn btn-neutral float-right" title="Model Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="create-network.html" class="btn btn-neutral" title="Creating a Network" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lynker Technologies
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

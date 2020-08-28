@@ -28,6 +28,7 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Creating a Network" href="create-network.html" />
@@ -100,6 +101,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="create-network.html">Creating a Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-cram.html">Running a Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Model Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="details.html">Model Details</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive CRAM Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="model-version.html">Model Version</a></li>
@@ -174,19 +177,19 @@
 <h2>Network Elements<a class="headerlink" href="#network-elements" title="Permalink to this headline">¶</a></h2>
 <p>CRAM uses 8 types of objects to represent real-world systems.</p>
 <ul class="simple">
-<li><strong>Nodes:</strong> Nodes are general-purpose elements within the model network. They are used along with links to build a model network that represents a real-world system. Mass balance nodes are a special type of node added automatically by CRAM. They are connected to inflows and demands and are used to maintain mass balance.</li>
-<li><strong>Links:</strong> Links are general-purpose elements most often used to simulate rivers or canal reaches. They are also used as arbitrary connectors between two nodes.</li>
-<li><strong>Inflows:</strong> Inflows represent flow into a network. They are frequently used to represent a raw water supply such as a river.</li>
-<li><strong>Demands:</strong> Demands represent flow out of a network. They are frequently used to represent withdrawals from a system such as a diversion ditch or water right.</li>
-<li><strong>Reservoirs:</strong> Reservoirs represent storage within a system. They are more complex than other network elements, requiring nodes and links for proper configuration.</li>
-<li><strong>Decrees:</strong>  Decrees are used to model water rights. They can be used to represent the limits on total annual diversion to canals, to set annual filling limits on water rights into reservoirs, or to limit supplemental water to an annual limit without having to determine in which months it might be needed.</li>
-<li><strong>Return Flows:</strong> Return flows represent water that leaves the surface water system at one location but then returns at another location and possibly another time.</li>
-<li><strong>Instream Flows:</strong> Instream flows represent the minimum water that must be available in a river, for example to support fish health.</li>
+<li><p><strong>Nodes:</strong> Nodes are general-purpose elements within the model network. They are used along with links to build a model network that represents a real-world system. Mass balance nodes are a special type of node added automatically by CRAM. They are connected to inflows and demands and are used to maintain mass balance.</p></li>
+<li><p><strong>Links:</strong> Links are general-purpose elements most often used to simulate rivers or canal reaches. They are also used as arbitrary connectors between two nodes.</p></li>
+<li><p><strong>Inflows:</strong> Inflows represent flow into a network. They are frequently used to represent a raw water supply such as a river.</p></li>
+<li><p><strong>Demands:</strong> Demands represent flow out of a network. They are frequently used to represent withdrawals from a system such as a diversion ditch or water right.</p></li>
+<li><p><strong>Reservoirs:</strong> Reservoirs represent storage within a system. They are more complex than other network elements, requiring nodes and links for proper configuration.</p></li>
+<li><p><strong>Decrees:</strong>  Decrees are used to model water rights. They can be used to represent the limits on total annual diversion to canals, to set annual filling limits on water rights into reservoirs, or to limit supplemental water to an annual limit without having to determine in which months it might be needed.</p></li>
+<li><p><strong>Return Flows:</strong> Return flows represent water that leaves the surface water system at one location but then returns at another location and possibly another time.</p></li>
+<li><p><strong>Instream Flows:</strong> Instream flows represent the minimum water that must be available in a river, for example to support fish health.</p></li>
 </ul>
 <p><strong>Data Objects</strong> are an additional type of model object that can be added to the network. They are used to track model output and do not affect the configuration or solution of the model. That is to say, Data Objects don’t connect with a To Node and From Node within the network.</p>
 </div>
 <div class="section" id="the-network-schematic">
-<h2>The Network Schematic<a class="headerlink" href="#the-network-schematic" title="Permalink to this headline">¶</a></h2>
+<span id="networkschematic-label"></span><h2>The Network Schematic<a class="headerlink" href="#the-network-schematic" title="Permalink to this headline">¶</a></h2>
 <p>The network schematic shows the physical connections in the model network. It is the user interface for CRAM, displaying a graphical representation of the links and nodes that represent the system. This includes inflows, reservoirs, demands, return flows, and groundwater use. <strong>Click the image below for a full resolution network schematic.</strong></p>
 <a class="reference internal image-reference" href="_images/network-schematic.png"><img alt="CRAM Demo Model Network Schematic" class="align-center" src="_images/network-schematic.png" style="width: 779.0999999999999px; height: 458.49999999999994px;" /></a>
 <p>The network schematic is an interactive interface for building the model and editing model parameters. It allows the user to access most locations in the model. For instance, clicking on Link 15 opens a pop-up that lists the link name, how it’s connected in the model (From Node, To Node), and the types of output it should have. <strong>This is shown in the image provided below.</strong></p>
@@ -217,115 +220,115 @@
 <span id="worksheet-label"></span><h2>CRAM Worksheet Names<a class="headerlink" href="#cram-worksheet-names" title="Permalink to this headline">¶</a></h2>
 <p>Most of the CRAM model data (time series data, model parameters, network connections) are stored within Excel worksheets. The worksheets have been listed in the tables below based on their functionality within in the model. By default many of these sheets are hidden to users. This functionality can be changed via the Worksheet Dictionary.</p>
 <p><strong>Standard CRAM Sheets:</strong> This is the core functionality within CRAM. Do not rename or delete these sheets.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="29%" />
-<col width="11%" />
-<col width="60%" />
+<col style="width: 29%" />
+<col style="width: 11%" />
+<col style="width: 60%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Sheet Name</th>
-<th class="head">User Level</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sheet Name</p></th>
+<th class="head"><p>User Level</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>User Controls</td>
-<td>Basic</td>
-<td>Contains settings for the model, most recent run.</td>
+<tbody>
+<tr class="row-even"><td><p>User Controls</p></td>
+<td><p>Basic</p></td>
+<td><p>Contains settings for the model, most recent run.</p></td>
 </tr>
-<tr class="row-odd"><td>Network Schematic</td>
-<td>Basic</td>
-<td>Contains the Network diagram.</td>
+<tr class="row-odd"><td><p>Network Schematic</p></td>
+<td><p>Basic</p></td>
+<td><p>Contains the Network diagram.</p></td>
 </tr>
-<tr class="row-even"><td>Worksheet Output Template</td>
-<td>Basic</td>
-<td>Contains list of elements to export to output file.</td>
+<tr class="row-even"><td><p>Worksheet Output Template</p></td>
+<td><p>Basic</p></td>
+<td><p>Contains list of elements to export to output file.</p></td>
 </tr>
-<tr class="row-odd"><td>Worksheet Dictionary</td>
-<td>Basic</td>
-<td>Controls sheet visibility.</td>
+<tr class="row-odd"><td><p>Worksheet Dictionary</p></td>
+<td><p>Basic</p></td>
+<td><p>Controls sheet visibility.</p></td>
 </tr>
-<tr class="row-even"><td>Model Workbook Version History</td>
-<td>Basic</td>
-<td>Worksheet to track changes to model workbook. Manually
-updated by users.</td>
+<tr class="row-even"><td><p>Model Workbook Version History</p></td>
+<td><p>Basic</p></td>
+<td><p>Worksheet to track changes to model workbook. Manually
+updated by users.</p></td>
 </tr>
-<tr class="row-odd"><td>Output Sheet</td>
-<td>Basic</td>
-<td>Worksheet to store model results for model run. CRAM raw output.</td>
+<tr class="row-odd"><td><p>Output Sheet</p></td>
+<td><p>Basic</p></td>
+<td><p>Worksheet to store model results for model run. CRAM raw output.</p></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Internal CRAM Sheets:</strong> These sheets are hidden in the default “Basic User” settings. Do not rename or delete these sheets.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="14%" />
-<col width="8%" />
-<col width="78%" />
+<col style="width: 14%" />
+<col style="width: 8%" />
+<col style="width: 78%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Sheet Name</th>
-<th class="head">User Level</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sheet Name</p></th>
+<th class="head"><p>User Level</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Global Data Sheet</td>
-<td>Developer</td>
-<td>Contains settings for CRAM model, global variables for model execution, most recent run and dialog box settings.</td>
+<tbody>
+<tr class="row-even"><td><p>Global Data Sheet</p></td>
+<td><p>Developer</p></td>
+<td><p>Contains settings for CRAM model, global variables for model execution, most recent run and dialog box settings.</p></td>
 </tr>
-<tr class="row-odd"><td>Node Sheet</td>
-<td>Developer</td>
-<td>Contains text data used in node dialog box.</td>
+<tr class="row-odd"><td><p>Node Sheet</p></td>
+<td><p>Developer</p></td>
+<td><p>Contains text data used in node dialog box.</p></td>
 </tr>
-<tr class="row-even"><td>Link Sheet</td>
-<td>Developer</td>
-<td>Contains text data used in link dialog box.</td>
+<tr class="row-even"><td><p>Link Sheet</p></td>
+<td><p>Developer</p></td>
+<td><p>Contains text data used in link dialog box.</p></td>
 </tr>
-<tr class="row-odd"><td>Inflow Sheet</td>
-<td>Developer</td>
-<td>Contains text data used in inflow dialog box.</td>
+<tr class="row-odd"><td><p>Inflow Sheet</p></td>
+<td><p>Developer</p></td>
+<td><p>Contains text data used in inflow dialog box.</p></td>
 </tr>
-<tr class="row-even"><td>Demand Sheet</td>
-<td>Developer</td>
-<td>Contains text data used in demand dialog box.</td>
+<tr class="row-even"><td><p>Demand Sheet</p></td>
+<td><p>Developer</p></td>
+<td><p>Contains text data used in demand dialog box.</p></td>
 </tr>
-<tr class="row-odd"><td>Reservoir Sheet</td>
-<td>Developer</td>
-<td>Contains text data used in reservoir dialog box.</td>
+<tr class="row-odd"><td><p>Reservoir Sheet</p></td>
+<td><p>Developer</p></td>
+<td><p>Contains text data used in reservoir dialog box.</p></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Time Series Data Sheets:</strong> These sheets are automatically created by CRAM as the user builds the model. They are sequentially numbered by CRAM.</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="19%" />
-<col width="13%" />
-<col width="68%" />
+<col style="width: 19%" />
+<col style="width: 13%" />
+<col style="width: 68%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Sheet Name</th>
-<th class="head">User Level</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sheet Name</p></th>
+<th class="head"><p>User Level</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Link n</td>
-<td>Advanced</td>
-<td>Contains time series data for user defined link sheets.</td>
+<tbody>
+<tr class="row-even"><td><p>Link n</p></td>
+<td><p>Advanced</p></td>
+<td><p>Contains time series data for user defined link sheets.</p></td>
 </tr>
-<tr class="row-odd"><td>Inflow n</td>
-<td>Advanced</td>
-<td>Contains time series data for user defined inflow sheets.</td>
+<tr class="row-odd"><td><p>Inflow n</p></td>
+<td><p>Advanced</p></td>
+<td><p>Contains time series data for user defined inflow sheets.</p></td>
 </tr>
-<tr class="row-even"><td>Demand n</td>
-<td>Advanced</td>
-<td>Contains time series data for user defined demand sheets.</td>
+<tr class="row-even"><td><p>Demand n</p></td>
+<td><p>Advanced</p></td>
+<td><p>Contains time series data for user defined demand sheets.</p></td>
 </tr>
-<tr class="row-odd"><td>Instream flow n</td>
-<td>Advanced</td>
-<td>Contains time series data for user defined instream flow sheets.</td>
+<tr class="row-odd"><td><p>Instream flow n</p></td>
+<td><p>Advanced</p></td>
+<td><p>Contains time series data for user defined instream flow sheets.</p></td>
 </tr>
 </tbody>
 </table>
@@ -373,20 +376,11 @@ updated by users.</td>
 
     
     
-      <script type="text/javascript">
-          var DOCUMENTATION_OPTIONS = {
-              URL_ROOT:'./',
-              VERSION:'',
-              LANGUAGE:'None',
-              COLLAPSE_INDEX:false,
-              FILE_SUFFIX:'.html',
-              HAS_SOURCE:  true,
-              SOURCELINK_SUFFIX: '.txt'
-          };
-      </script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
 
   

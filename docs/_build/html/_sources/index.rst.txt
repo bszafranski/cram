@@ -28,6 +28,8 @@ Guide
    what-is-cram
    basics
    create-network
+   running-cram
+   output
    details
    interactive
    model-version

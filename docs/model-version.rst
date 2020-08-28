@@ -15,7 +15,7 @@ CRAM 4.043
 
 1. New Exchange object added to the model. This can be found in the CRAM model ribbon "Add Exchange".
 
-.. image:: /images/model-version-add-exchange-circled.png
+.. image:: /images/ModelVersion/model-version-add-exchange-circled.png
    :align: center
    :scale: 60%
 
@@ -78,7 +78,7 @@ CRAM 4.036
 
 1. Added a Ribbon to the application. CRAM now features a "CRAM" tab in the Excel Ribbon. This provides for a more seamless user interface.
 
-.. image:: /images/model-version-cram-menu.png
+.. image:: /images/ModelVersion/model-version-cram-menu.png
    :align: center
    :scale: 75%
 
@@ -90,11 +90,11 @@ CRAM 4.035
 
 1. Added a new navigation menu and new navigation buttons (network schematic, basin map, worksheet dictionary) to the Add-ins tab, and updated to the main XLCRAM engine.
 
-.. image:: /images/model-version-navigation-menu.png
+.. image:: /images/ModelVersion/model-version-navigation-menu.png
    :align: center
    :scale: 60%
 
-.. image:: /images/model-version-new-buttons-circled.png
+.. image:: /images/ModelVersion/model-version-new-buttons-circled.png
    :align: center
    :scale: 60%
 
@@ -214,7 +214,7 @@ CRAM 4.022
 
 1. Incorporated updated buttons and look for the User Controls worksheet into the main code engine.  
 
-.. image:: /images/model-version-level-of-detail.png
+.. image:: /images/ModelVersion/model-version-level-of-detail.png
    :align: center
    :scale: 75%
 

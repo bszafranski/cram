@@ -1,14 +1,16 @@
+.. _CreateNetwork-label:
+
 Creating a Network
 ==================
 
 In its simplest form, a CRAM network consists of a single node with one inflow and one demand.  The inflow specifies the amount of water entering the system and the demand specifies the amount of water leaving the system.  Because CRAM enforces mass-balance, all flow entering through the Inflow must exit through the Demand. If the demand has been constrained to a capacity less than the Inflow flow found in one of the minor time steps the model will determine that an infeasible solution has occurred. 
 
-.. image:: /images/basic-network.png
+.. image:: /images/CreateNetwork/basic-network.png
    :align: center
 
 Most CRAM models will consist of a few hundred nodes connected by a larger number of links allowing water (flow) to be delivered to many different competing demands from a variety of sources. CRAM optimizes the system to determine the most efficient use of the water given the delivery constraints (both physical and administrative). After a solution has been attained, the user may want to experiment with additional stresses, constraints, or options on the simulation network. This is a core component of CRAM's scenario analysis.  
 
-.. image:: /images/complex-network.png
+.. image:: /images/CreateNetwork/complex-network.png
    :align: center
    :scale: 60%
 
@@ -23,20 +25,20 @@ Adding a Node
 Nodes are the basic building block of a CRAM network. Nodes are used to connect other network arc types (e.g., links, inflows, demands) and help determine the potential paths for flow in the model. There are two kinds of nodes in a model.
 
 1. General nodes are nodes that have a single instance and physical location in the model. These are the types of nodes added to the model by the user. General nodes can be identified by a circle with a number inside of it.  
-2. Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see The Network Schematic) it is represented in multiple locations. However, they all represent the same node in the model. For instance, an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic can be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping. These are automatically added to a model network as needed by CRAM. 
+2. Special case nodes are related to mass balance. In each CRAM model there is one mass-balance node, but in the network diagrams (see :ref:`NetworkSchematic-label`) it is represented in multiple locations. However, they all represent the same node in the model. For instance, an inflow arc is attached from a mass balance node, while a demand arc is attached going-to a mass balance node. Mass balance nodes in the network schematic can be identified by the MB prefix before the node number. The MB node number is irrelevant, and simply used for book keeping. These are automatically added to a model network as needed by CRAM. 
 
 All nodes in the network maintain mass balance during every step of the solution.
 
-.. image:: /images/node-types.png
+.. image:: /images/CreateNetwork/node-types.png
    :scale: 75%
    :align: center
    :alt: two types of nodes in network
    
 To add a node to the network, click on the Create Node button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Node from the object type drop-down box.
 
-.. image:: /images/add-node.png
+.. image:: /images/CreateNetwork/add-node.png
 
-.. image:: /images/add-node2.png
+.. image:: /images/CreateNetwork/add-node2.png
 
 
 Node Basics
@@ -44,7 +46,7 @@ Node Basics
 
 The basic features necessary to add a model node are discussed in this section. Here we step through the fields on the **Edit Node** dialog box.
 
-.. image:: /images/edit-node.png
+.. image:: /images/CreateNetwork/edit-node.png
 
 The **Node Number** is automatically assigned by CRAM. Nodes cannot be reused in the network.
 
@@ -63,7 +65,7 @@ Adding a Link
 
 A link connects two nodes. It has four user configurable parameters which help determine the amount of flow passing from the "From Node" to the "To Node" in the model. The four parameters are:
 
-.. image:: /images/link-image.png
+.. image:: /images/CreateNetwork/link-image.png
    :scale: 75%
    :align: center
    :alt: image of network link
@@ -84,16 +86,16 @@ A link connects two nodes. It has four user configurable parameters which help d
 
 To add a link to the network, click on the Create Link button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Link from the drop-down box.
 
-.. image:: /images/add-link.png
+.. image:: /images/CreateNetwork/add-link.png
 
-.. image:: /images/add-link2.png
+.. image:: /images/CreateNetwork/add-link2.png
 
 Link Basics
 ~~~~~~~~~~~
 
 The basic features necessary to build a model link are discussed in this section. Here we step through the fields on the **Edit Link** dialog box.
 
-.. image:: /images/edit-link.png
+.. image:: /images/CreateNetwork/edit-link.png
 
 The **Link Number** is automatically assigned by CRAM.  Link numbers cannot be reused in the network.
 
@@ -137,7 +139,7 @@ Inflows provide the source of water for an CRAM network. Once in the model the w
 - An inflow can be connected TO any node (except a mass balance node)
 - An inflow will always be connected FROM the mass balance node
 
-.. image:: /images/inflow-image.png
+.. image:: /images/CreateNetwork/inflow-image.png
    :scale: 65%
    :align: center
    :alt: inflow connected to a node
@@ -147,16 +149,16 @@ Inflows only have one parameter, Flow.  For Inflows, the Flow defines both the H
 To add an inflow to the network, click on the Create Inflow button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Inflow from the dialog box that appears.
 
 
-.. image:: /images/add-inflow.png
+.. image:: /images/CreateNetwork/add-inflow.png
 
-.. image:: /images/add-node2.png
+.. image:: /images/CreateNetwork/add-inflow2.png
 
 Inflow Basics
 ~~~~~~~~~~~~~
 
 The basic features necessary to add model inflows are discussed in this section. Here we step through the fields on the **Edit Inflow** dialog box.
 
-.. image:: /images/edit-inflow.png
+.. image:: /images/CreateNetwork/edit-inflow.png
 
 The **Inflow Number** is automatically assigned by CRAM.  Inflow numbers cannot be reused in the network.
 
@@ -190,23 +192,23 @@ The capacity of a demand is determined by the High parameter while the minimum f
 - A demand can be connected FROM any node (except a Mass-Balance node)
 - A demand is always connected TO a mass balance node
 
-.. image:: /images/demand-image.png
+.. image:: /images/CreateNetwork/demand-image.png
    :scale: 65%
    :align: center
    :alt: demand connected from a node
 
 To add a demand to the network, click on the Create Demand button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Demand from the dialog box that appears.
 
-.. image:: /images/add-demand.png
+.. image:: /images/CreateNetwork/add-demand.png
 
-.. image:: /images/add-demand2.png
+.. image:: /images/CreateNetwork/add-demand2.png
 
 Demand Basics
 ~~~~~~~~~~~~~
 
 The basic features necessary to add model demands are discussed in this section. Here we step through the fields on the **Edit Demand** dialog box.
 
-.. image:: /images/edit-demand.png
+.. image:: /images/CreateNetwork/edit-demand.png
 
 The **Demand Number** is automatically assigned by CRAM. Demand numbers cannot be reused in the network.
 
@@ -247,16 +249,16 @@ A CRAM Reservoir is used to simulate the storage of water in a reservoir. This n
 
 To add a reservoir to the network, click on the Create Reservoir button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Reservoir from the dialog box that appears.
 
-.. image:: /images/add-reservoir.png
+.. image:: /images/CreateNetwork/add-reservoir.png
 
-.. image:: /images/add-reservoir2.png
+.. image:: /images/CreateNetwork/add-reservoir2.png
 
 Reservoir Basics
 ~~~~~~~~~~~~~~~~
 
 The basic features necessary to add reservoirs are discussed in this section. Here we step through the fields on the **Edit Reservoir** dialog box.
 
-.. image:: /images/edit-reservoir.png
+.. image:: /images/CreateNetwork/edit-reservoir.png
 
 The **Reservoir Number** is automatically assigned by CRAM. Reservoir numbers cannot be reused in the network.
 
@@ -304,16 +306,16 @@ A CRAM Instream Flow is a specialized object used in model to simulate water rig
 
 To add an instream flow to the network, click on the "Create an Instream Flow" button on the toolbar (shown below) or click on the menu ExcelCRAM->Network->Add Object... menu item and select Reservoir from the dialog box that appears.
 
-.. image:: /images/add-instream-flow.png
+.. image:: /images/CreateNetwork/add-instream-flow.png
 
-.. image:: /images/add-instream-flow2.png
+.. image:: /images/CreateNetwork/add-instream-flow2.png
 
 Instream Flow Basics
 ~~~~~~~~~~~~~~~~~~~~
 
 The basic features necessary to add instream flow objects are discussed in this section. Here we step through the fields on the **Edit Instream Flow** dialog box.
 
-.. image:: /images/edit-instream-flow.png
+.. image:: /images/CreateNetwork/edit-instream-flow.png
 
 The **ISF Number** is automatically assigned by CRAM. Instream flow numbers cannot be reused in the network.
 
@@ -339,7 +341,7 @@ The **Priority** field provides a space to enter the priority assigned to that i
 
 **Best Practices:** The instream flow should be setup with a single link above it and a single link downstream of it. In the middle, there are two parallel arcs, an instream flow and a link. This helps to avoid confusion regarding the link priorities. The total flow of a river reach (sum of instream flow and its parallel link) is easily ascertained from next downstream link. See image below.
 
-.. image:: /images/instream-best-practices-temp.png
+.. image:: /images/CreateNetwork/instream-best-practices-temp.png
  
 Advanced Instream Flow Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -356,5 +358,5 @@ Moving Objects in CRAM
 
 When a new node is added to the model, it is positioned as close as possible to the last cell selected on the network schematic. The node can be repositioned by bringing up the Drawing Toolbar and clicking on the arrow to move the drawing of the node. Alternatively, right-click the node, then left-click to remove the pop-up menu, then place the cursor at the edge of the node to grab it and move it.
 
-.. image:: /images/cursor.png
+.. image:: /images/CreateNetwork/cursor.png
 

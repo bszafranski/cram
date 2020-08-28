@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Model Output &mdash; CRAM  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/cram-icon-32.png"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Model Details" href="details.html" />
+    <link rel="prev" title="Running a Model" href="running-cram.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CRAM
+          
+
+          
+            
+            <img src="_static/cram-sidebar-Lynker-flip.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="what-is-cram.html">What Is CRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Model Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-network.html">Creating a Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running-cram.html">Running a Model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#extracting-model-output">Extracting Model Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-variables">Output Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#worksheet-output-template">Worksheet Output Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-location">Output Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-the-order-of-the-output">Defining the Order of the Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">Model Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactive.html">Interactive CRAM Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-version.html">Model Version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CRAM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Model Output</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/output.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="model-output">
+<span id="output-label"></span><h1>Model Output<a class="headerlink" href="#model-output" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="extracting-model-output">
+<h2>Extracting Model Output<a class="headerlink" href="#extracting-model-output" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="basics.html#networkschematic-label"><span class="std std-ref">The Network Schematic</span></a> allows users to interact with network elements and extract model output. By clicking on a object, users open the edit object dialog box. At the bottom of each dialog box there are multiple check boxes where users can select the output to export to worksheet. In the Edit Demand figure below, output has been selected for Flow, High, and Shortage.</p>
+<a class="reference internal image-reference" href="_images/demand-output.png"><img alt="_images/demand-output.png" class="align-center" src="_images/demand-output.png" style="width: 368.1px; height: 416.7px;" /></a>
+<p>For run-time efficiency, CRAM saves only those parameters that are defined as output before the model executes. It is not possible to retrieve additional data after a run that was not included on the output templates. Therefore, if additional output is needed simply select the object (link, reservoir, inflow, etc.) and check the desired output (flow, high, low, etc.).</p>
+</div>
+<div class="section" id="output-variables">
+<h2>Output Variables<a class="headerlink" href="#output-variables" title="Permalink to this headline">¶</a></h2>
+<p>There are 7 types of data that can be output from CRAM: Flow, High, Low, Priority, Contents, Evaporation, and Shortage. Some output is only available to certain network elements (links, reservoirs, etc.) The output variables are described in the table below. Information on the model parameters can be found in <a class="reference internal" href="create-network.html#createnetwork-label"><span class="std std-ref">Creating a Network</span></a>, arranged by network element.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Flow</p></td>
+<td><p>Denotes the amount of flow that the model found to be the optimal amount to pass through the network element considering all network element priorities and constraints. The value of the Flow variable is generated by CRAM. Flow is the typical output users will want to generate from their CRAM model. The Flow parameter applies to Links, Demands, Reservoir, Inflows, Instream Flows, and Decrees. For Data Objects this parameter is set by the User Code.</p></td>
+</tr>
+<tr class="row-odd"><td><p>High</p></td>
+<td><p>Denotes the maximum amount of flow allowed through the link in a single timestep. The High parameter applies to Links, Demands, Instream Flows, and Decrees. If the High parameter is set to Infinite (defalut), the High output will often be similar to the Flow output. If the High parameter is set by the user (ex., 200), the High output will be limited by the High parameter.</p></td>
+</tr>
+<tr class="row-even"><td><p>Low</p></td>
+<td><p>Denotes the minimum amount of flow that must pass through an element in a single time step. The Low parameter applies to Links, Demands, Instream Flows, and Decrees. The Low parameter default value of 0 is recommended; however, the value of this parameter can be adjusted by the user.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Priority</p></td>
+<td><p>Denotes the relative benefit or priority of routing flow through this network element. Priorities in the model are additive so two elements in series will have their priorities added together and may create a combined priority greater than another element in parallel. The Priority parameter applies to all elements except Inflows.</p></td>
+</tr>
+<tr class="row-even"><td><p>Contents (storage)</p></td>
+<td><p>Denotes the end of month storage contents of the Reservoir element. The Contents variable applies only to Reservoir elements. The initial contents are set by the user, but after the first time step the reservoir contents are calculated by CRAM.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Evaporation</p></td>
+<td><p>Denotes the total evaporation from the reservoir during the current time step. The Evaporation variable applies only to Reservoir elements. The evaporation is calculated by CRAM according to the surface area/volume curve supplied by the user.</p></td>
+</tr>
+<tr class="row-even"><td><p>Shortage</p></td>
+<td><p>Denotes the difference between the High (value desired) and the Flow (value attained) during the current time step. The shortage output is calculated by CRAM, and is typically used when analyzing output from Demand objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Capacity</p></td>
+<td><p>Denotes the annnual volumetric flow limit that is able to pass through a link. The volume of flow that has passed through a link is calculated by CRAM, and the link will close when the limit is reach so that no more flow passes through the object. The Capacity variable applies only to Decree objects.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="worksheet-output-template">
+<h2>Worksheet Output Template<a class="headerlink" href="#worksheet-output-template" title="Permalink to this headline">¶</a></h2>
+<p>Anytime output is selected by the user (Flow, High, Shortage, etc.), a corresponding entry is automatically added to the sheet <strong>Worksheet Output Template</strong>. This sheet contains a list of all of the network object that have been selected by the user to be output from CRAM. As shown below, the <strong>Worksheet Output Template</strong> lists the element type, element number (for that type), the type of output selected, the order number, the name of the element, and the output sheet where the location will be stored. Notice that some objects have multiple outputs. For instance, Demand 1 has output for High, Flow, and Shortage.</p>
+<p>While the <strong>Worksheet Output Template</strong> stores a list of the data that will be exported from CRAM, the various <em>output sheets</em> actually display and store the data. Model output can be saved to any number of model output sheets as specified by the user. Output is stored in the sheet <strong>Output Sheet</strong> by default.</p>
+<img alt="_images/worksheet-output-template.png" class="align-center" src="_images/worksheet-output-template.png" />
+</div>
+<div class="section" id="output-location">
+<h2>Output Location<a class="headerlink" href="#output-location" title="Permalink to this headline">¶</a></h2>
+<p>The model output is stored according to the name specified in Column F of the <strong>Worksheet Output Template</strong>, which has the heading “Output Sheet” (see image above). When output is initially added, a new corresponding entry is added to the <strong>Worksheet Output Template</strong> and the value in Column F will have the value “Default”. Entries in Column F with the value “Default” will be automatically exported to a sheet specified in the Run Dialog Box (see figure below). The default name for this worksheet is <strong>Output Sheet</strong>.</p>
+<a class="reference internal image-reference" href="_images/run-dialog-output.png"><img alt="_images/run-dialog-output.png" class="align-center" src="_images/run-dialog-output.png" style="width: 469.0px; height: 337.5px;" /></a>
+<p>Users are encouraged to export different types of output to different locations (sheets). For instance, in the <strong>Worksheet Output Template</strong> image above, some demand related output will export to a sheet named “Demand Output”, and some reservoir related output will export to a sheet named “Reservoir Output”. The output location can be customized to meet the user’s needs. To change the output location, do the following:</p>
+<ul class="simple">
+<li><p>Write a new sheet name in Column F for the variable of interest, such as ‘Shortages’ or ‘Watershed Output’.</p></li>
+<li><p>Click “Read Output Template Sheets” from the ExcelCRAM menu to save the change, as shown in the image below.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/read-output-template.png"><img alt="_images/read-output-template.png" class="align-center" src="_images/read-output-template.png" style="width: 578.9px; height: 228.89999999999998px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clicking “Read Output Template Sheets” ensures that changes to the <strong>Worksheet Output Template</strong> are not lost. For instance, if an object is selected from the Network Schematic before “reading the sheet”, the changes will not be saved.</p>
+</div>
+</div>
+<div class="section" id="defining-the-order-of-the-output">
+<h2>Defining the Order of the Output<a class="headerlink" href="#defining-the-order-of-the-output" title="Permalink to this headline">¶</a></h2>
+<p>By default CRAM places all output on the <strong>Output Sheet</strong> in numeric order, grouped by element type (Link, Inflow, Demand, etc.) as it is listed in the <strong>Worksheet Output Template</strong> . Adding new network elements later causes the output order to change because the new output is inserted in at its numerical place.</p>
+<p>Users can manually adjust the order of model output by specifying a numbered order in Column D named “Output Order” of the <strong>Worksheet Output Template</strong>. To change the order of the output, do the following:</p>
+<ul class="simple">
+<li><p>The default value for Column D is 10,000,000. When the output from the <strong>Worksheet Output Template</strong> is displayed in the output sheets (e.g., <strong>Output Sheet</strong>), the output is put in numerical order, with lower values appearing in columns to the left and higher values in columns to the right. The order is purely relational, so there is no effect of gaps in number sequence. Sometimes it is valuable to intentionally leave gaps so additional parameters can be inserted into the order of the list at a later time. For instance, output related to an upper watershed may be numbered in the 5000’s, while output from a lower watershed may be numbered in the 8000’s.</p></li>
+<li><p>When adding the output order is completed, from the Add-ins section of the Excel Ribbon select “ExcelCRAM / Output / Read Output Template Sheets”. This will rearrange the output parameters in increasing order. Next, select “ExcelCRAM / Output / Read Output Template Sheets” from the Add-ins menu. This will save the changes to the <strong>Worksheet Output Template</strong>. Failing to read and then write the output sheet will result in the changes being lost the next time the Worksheet Output Template is read (e.g., when a parameter is selected on the Network Schematic sheet).</p></li>
+<li><p>Run the model to get the output displayed on the output sheets in the order specified.</p></li>
+<li><p>An example of the interaction between the numbering on the <strong>Worksheet Output Template</strong> and the order on the default <strong>Output Sheet</strong> is shown below. Link 3 is ordered first with a value of 200, followed by Link 16 with a value of 210, followed by Link 9 with a value of 300.</p></li>
+</ul>
+<img alt="_images/output-order.png" class="align-center" src="_images/output-order.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="details.html" class="btn btn-neutral float-right" title="Model Details" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="running-cram.html" class="btn btn-neutral" title="Running a Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Lynker Technologies
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
