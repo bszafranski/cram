@@ -9,7 +9,7 @@ CRAM consists of two parts: Lynker's CRAM model engine (.XLAM) and the user-deve
 CRAM Model Engine
 ~~~~~~~~~~~~~~~~~
 
-Before the model can be run, Lynker's CRAM model engine needs to be opened and the model file loaded. The CRAM model engine is opened by starting Microsoft Excel and loading the file XLCRAM2007.XLAM, or by simply double clicking the XLCRAM2007.XLAM file. The model engine can be found in the installation directory (The default from the setup program is C:\Program Files\Lynker).
+Before the model can be run, Lynker's CRAM model engine needs to be opened and the model file loaded. The CRAM model engine is opened by starting Microsoft Excel and loading the file XLCRAM2007.XLAM, or by simply double clicking the XLCRAM2007.XLAM file. The model engine can be found in the installation directory (the default directory is C:/Program Files/Lynker).
 
 A pop-up dialog box may appear when this CRAM engine is loaded into Excel, warning that the workbook contains macros and that some macros may contain viruses that could be harmful to the computer. Click on the “Enable Macros” button to allow the CRAM engine to install the menu interface to the Excel ribbon. 
 
