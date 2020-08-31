@@ -20,14 +20,14 @@ A pop-up dialog box may appear when this CRAM engine is loaded into Excel, warni
 CRAM Model File
 ~~~~~~~~~~~~~~~
 
-If the user has not already developed a CRAM model, a network can be built using the tools and menus in Excel CRAM (see :ref:`CreateNetwork-label`). If a model has already been developed, the model network can be loaded and the data and scenarios can be found in the \*\.xcwm file. Load the model file by finding the Add-in section in the Excel ribbon, then click on *Excel CRAM->Workbook->Open Existing Workbook* and select the appropriate .xcwm file. If the user doesn’t see this file listed in the dialog box displayed, the user will need to change the current directory by navigating to the folder containing the model (\*\.xcwm).
+If the user has not already developed a CRAM model, a network can be built using the tools and menus in Excel CRAM (see :ref:`CreateNetwork-label`). If a model has already been developed, the model network can be loaded and the data and scenarios can be found in the \*\.xcwm file. Load the model file by finding the Add-in section in the Excel ribbon, then click on *Excel CRAM->Workbook->Open Existing Workbook* and select the appropriate .xcwm file. If the user does not see this file listed in the dialog box displayed, the user will need to change the current directory by navigating to the folder containing the model (\*\.xcwm).
 
 .. image:: /images/RunningCRAM/load-model.png
 
 
 Starting a Model Run
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-To run a CRAM model click the Excel CRAM menu, and then the “Start Simulation” option. Alternatively, click the triangle icon pointing to the right  .
+To run a CRAM model click the Excel CRAM menu, and then the “Start Simulation” option. Alternatively, click the triangle icon pointing to the right.
 
 .. image:: /images/RunningCRAM/start-simulation2.png
    :align: center
