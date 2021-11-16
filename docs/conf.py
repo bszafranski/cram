@@ -48,7 +48,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'CRAM'
-copyright = u'2018, Lynker Technologies'
+copyright = u'2020, Lynker Technologies LLC'
 author = u'Bill Szafranski'
 
 # The version info for the project you're documenting, acts as replacement for

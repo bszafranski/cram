@@ -284,6 +284,8 @@ The **Initial Contents** provides a place to record the initial storage contents
 
 The **Volume-Area Curve** contains pairs of numbers that describe the volume-area relationship for the reservoir.  This table of numbers is used to calculate average surface area over a time step (minor time step) to calculate evaporation. The numbers for this field are entered in increasing order from the lowest volume to the reservoir's total capacity with the corresponding area following the colon. (i.e.  0:0, 100:40, 200:60 would represent a reservoir that had covered 40 acres when it contained 100 acre-feet (AF) and covered 60 acres when it contained 200 AF). Values between the points are linearly interpolated to determine volume and surface area. Using the previous example, 150 AF of water would correspond to 50 acres in surface area.
 
+.. note:: *The reservoir elevation-volume curve must start with a data point of 0 elevation, 0 storage (e.g., 0 ft, 0 af). If this value is missing, it will cause errors in the calculation of reservoir evaporation.*
+
 The **Seasonal Evaporation Rate Series** stores the evaporation rates as a series of comma delimited numbers. There should be one value for each minor time step in your model. 
 
 .. note:: *There are 2 options for evaporation data. 1. Time series of reservoir evaporation (by Minor Time Step). 2. Annual repeating evaporation values (by Minor Time Step).*
