@@ -293,7 +293,7 @@ The **Seasonal Evaporation Rate Series** stores the evaporation rates as a serie
 Advanced Reservoir Setup
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-- The **Display Group** is set to "1" by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see :ref:`details-label` documentation. 
+- The **Display Group** is set to "1" by default. The display group is an advanced feature that allows the user to hide network objects (demands, links, reservoirs, etc.) in the network schematic. For more on display groups, see :ref:`details-label` documentation.  
 
 - The **Comment** box allows the user to add any notes about the node that might be important to the design.
 
